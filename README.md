@@ -2,6 +2,9 @@ Photos
 =========
 _Entire project in French (for now)_
 
+Testez directement le site démo : http://demo-photos.xavierboubert.fr
+---------
+
 _Photos_ vous permet de créer une magnifique gallerie pour toutes vos photos et vidéos. Son principe est de scanner un répertoire contenant des sous répertoires de photos et vidéos et de créer une interface pour les voir et les administrer facilement.
 
 Attention. Cette interface n'influe jamais sur vos photos et vidéos directement. Toutes ses fonctionnalités n'influe que sur le cache des miniatures qu'il génère. Il vous ai impossible par exemple de supprimer une photo via l'interface, seulement de la cacher.
