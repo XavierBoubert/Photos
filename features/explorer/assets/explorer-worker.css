@@ -1,0 +1,64 @@
+.worker-bar {
+  position: relative;
+  height: 0;
+  background: #333;
+  overflow: hidden;
+
+  transition: all .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+  -webkit-transition: all .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+  -moz-transition: all .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+  -o-transition: all .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+  -ms-transition: all .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+}
+
+.worker-bar.visible {
+  height: 20px;
+}
+
+.worker-bar .progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: #03648A;
+
+  transition: all .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+  -webkit-transition: all .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+  -moz-transition: all .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+  -o-transition: all .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+  -ms-transition: all .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+}
+
+.worker-bar .label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #FFF;
+  padding: 3px 0 0 30px;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.worker-bar.stopped .label {
+  padding-left: 10px;
+}
+
+.worker-bar .stop {
+  cursor: pointer;
+  position: absolute;
+  top: 2px;
+  left: 9px;
+  width: 16px;
+  height: 15px;
+  background: black;
+  border-radius: 50%;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  padding-top: 1px;
+}
+
+.worker-bar.stopped .stop {
+  display: none;
+}
