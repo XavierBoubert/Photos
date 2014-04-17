@@ -1,6 +1,8 @@
 <a name="1.2.0"></a>
 # 1.2.0
 
+- [Customize] Générer automatiquement la première photo de cover et de banner
+
 - Améliorer les perfs de génération de photos
 - Pouvoir tout mettre invisible par defaut
 - SEO
