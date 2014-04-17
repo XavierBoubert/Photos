@@ -20,9 +20,12 @@ _Photos_ ne demande qu'un simple server Apache avec PHP pour fonctionner.
 1. Récupérer le repo sur votre machine avec `git clone` ou en récupérant l'archive de la dernière version
 2. Ajouter vos répertoires de photos et vidéos dans le répertoire `photos` à la racine du projet ou tout simplement en faisant un `symlink` vers un répertoire contenant vos photos et vidéos
 
-    Attention. Les répertoires contenant vos photos doivent avoir le format de nom suivant :
+<dl>
+  <dt>Attention</dt>
+  <dd>Les répertoires contenant vos photos doivent avoir le format de nom suivant :
     "Photos 2012.12.31 Titre"
-    Vous n'êtes pas obligé de donner un titre mais la date doit être impérativement dans le format "Année.Mois.Jour"
+    Vous n'êtes pas obligé de donner un titre mais la date doit être impérativement dans le format "Année.Mois.Jour"</dd>
+</dl>
 
 3. Lancez le site du projet
 
