@@ -105,12 +105,12 @@ $(function() {
           _stopVideos();
           _viewer.closeMenu();
           if(item.type() == PHOTOS_TYPES.PHOTO) {
-            $el.downloadButton.removeClass('hide');
             $el.downloadButtonSize.html(item.config().size.split('x').join(' x '));
             _downloadUrl = '/download' + item.config().src;
+            _viewer.showMenuButton();
           }
           else {
-            $el.downloadButton.addClass('hide');
+            _viewer.hideMenuButton();
           }
         }
 
@@ -320,6 +320,14 @@ $(function() {
           break;
         }
     });
+
+    this.showMenuButton = function() {
+      $el.menuButton.removeClass('invisible');
+    };
+
+    this.hideMenuButton = function() {
+      $el.menuButton.addClass('invisible');
+    };
 
     this.openMenu = function() {
       $el.menuButton.addClass('open');

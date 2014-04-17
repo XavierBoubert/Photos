@@ -110,11 +110,13 @@ body.no-scroll {
   cursor: pointer;
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: -6px;
   color: white;
   font-size: 36px;
   line-height: 12px;
   font-weight: 400;
+  height: 33px;
+  overflow: hidden;
   background: none;
   border: 0;
   padding: 0 5px 21px;
@@ -128,7 +130,11 @@ body.no-scroll {
 }
 
 .explorer-viewer-menu-button.open {
-  bottom: 7px;
+  bottom: 12px;
+}
+
+.explorer-viewer-menu-button.invisible {
+  bottom: -33px;
 }
 
 .explorer-viewer-menu {

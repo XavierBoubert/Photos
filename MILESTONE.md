@@ -4,12 +4,10 @@
 - Problème de sécurité sur les photos
 - Améliorer les perfs de génération de photos
 
-- Changelog + Readme + Install
-- Le menu du viewer
-- Le D&D du viewer
 - Pouvoir tout mettre invisible par defaut
 - SEO
 - Cross browser
+- Le D&D du viewer sur les mobiles
 
 <a name="1.3.0"></a>
 # 1.3.0

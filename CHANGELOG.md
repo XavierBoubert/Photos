@@ -2,6 +2,12 @@
 # 1.2.0 (2014-04-?)
 
 
+## Bug Fixes
+
+- **Viewer**
+  - Hide menu button on videos
+
+
 ## Breaking Changes
 
 - **Worker**
