@@ -44,32 +44,6 @@
 
   auto_login();
 
-  // TEST
-  /*require_once ROOT_PATH . '/vendor/phpThumb/phpthumb.class.php';
-
-  $file = '/home/photos/www/cache/Photos 2013.03.23/WP_20130323_008_1920x1080.jpg';
-  $mask = '/home/photos/www/features/photos/assets/featured-mask.jpg';
-
-  $phpThumb = new phpThumb();
-  $phpThumb->setSourceFilename($file);
-  $phpThumb->setParameter('fltr', 'mask|' . $mask);
-  $phpThumb->setParameter('w', 261);
-  $phpThumb->setParameter('h', 300);
-  $phpThumb->setParameter('zc', 1);
-  $phpThumb->setParameter('config_output_format', 'png');
-
-  if($phpThumb->GenerateThumbnail()) {
-    $phpThumb->OutputThumbnail();
-    $phpThumb->purgeTempFiles();
-  }
-  else {
-    var_dump($phpThumb->fatalerror);
-    var_dump($phpThumb->debugmessages);
-  }
-
-  exit;*/
-  //END
-
   if($pathurlLen > 0) {
     $imageTypes = array('png', 'jpg', 'jpeg', 'gif', 'bmp');
     $filesNoLogin = array('cache/logo.jpg', 'cache/banner.jpg');
@@ -89,7 +63,7 @@
 
         if(!user_connected() && !in_array($path, $filesNoLogin)) {
           $ext = 'jpg';
-          $url = $noPictureFile;
+          $path = $noPictureFile;
         }
 
         $ctype = 'image/jpg';
