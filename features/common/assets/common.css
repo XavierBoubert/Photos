@@ -1,0 +1,441 @@
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'), url(fonts/lato-light.woff) format('woff');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(fonts/lato-regular.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(fonts/opensans-light.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(fonts/opensans-regular.woff) format('woff');
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* html5doctor.com Reset v1.6.1 - http://cssreset.com */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}nav ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}ins{background-color:#ff9;color:#000;text-decoration:none}mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}table{border-collapse:collapse;border-spacing:0}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}
+input:focus, select:focus, textarea:focus, button:focus { outline: none; }
+
+html, body {
+  height: 100%;
+  background: black;
+}
+
+body, input, textarea, select, button {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Lato", sans-serif;
+  font-weight: normal;
+  font-weight: 300;
+}
+
+.clear {
+  clear: both;
+}
+
+.template {
+  display: none;
+}
+
+.hide {
+  display: none !important;
+}
+
+.banner {
+  z-index: 3;
+  position: relative;
+  width: 100%;
+  background: black;
+}
+
+.banner.disable {
+  overflow: hidden;
+  height: 0;
+}
+
+.banner .banner-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.banner .banner-cover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 305px;
+  background-attachment: scroll;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.banner .banner-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: -moz-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.03) 30%,rgba(0,0,0,0.9) 150%);
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0, 0, 0, 0)),color-stop(30%,rgba(0, 0, 0, 0.03)),color-stop(150%,rgba(0, 0, 0, 0.9)));
+  background: -webkit-linear-gradient(top,rgba(0, 0, 0, 0) 0,rgba(0, 0, 0, 0.03) 30%,rgba(0, 0, 0, 0.9) 150%);
+  background: -o-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.03) 30%,rgba(0,0,0,0.9) 150%);
+  background: -ms-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.03) 30%,rgba(0,0,0,0.9) 150%);
+  background: linear-gradient(to bottom,rgba(0, 0, 0, 0) 0,rgba(0, 0, 0, 0.03) 30%,rgba(0, 0, 0, 0.9) 150%);
+}
+
+.banner .banner-title {
+  position: absolute;
+  right: 0;
+  bottom: 52px;
+  left: 140px;
+  color: white;
+}
+
+.banner .banner-title h1 {
+  font-size: 38px;
+  text-shadow: 0 1px 0 #000;
+  line-height: 40px;
+  margin-bottom: 10px;
+}
+
+.banner .banner-title h2 {
+  font-size: 16px;
+  line-height: 20px;
+  text-shadow: 0 1px 0 #000;
+  font-weight: 400;
+}
+
+.banner .banner-infos  {
+  color: white;
+  text-shadow: 0 1px 0 #000;
+  position: absolute;
+  bottom: 55px;
+  right: 12px;
+}
+
+.banner .banner-infos .info-column {
+  display: inline-block;
+  margin: 0 0 0 40px;
+  font-size: 14px;
+  text-align: right;
+  line-height: 14px;
+  white-space: nowrap;
+}
+
+.banner .banner-infos .info-column span {
+  display: block;
+  font-size: 30px;
+  line-height: 38px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.banner .banner-menu-container {
+  padding-top: 190px;
+}
+
+.banner .banner-menu {
+  position: relative;
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid #000;
+  border-right: 0;
+  border-left: 0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  padding-left: 140px;
+}
+
+.banner .banner-menu .right-menu {
+  float: right;
+}
+
+.banner .banner-menu .right-menu .admin {
+  color: #DC572E;
+}
+
+.banner .banner-menu .banner-menu-select {
+  float: left;
+  padding: 2px;
+}
+
+.banner .banner-menu .banner-menu-item,
+.banner .banner-menu input[type="button"] {
+  margin: 0;
+  color: white;
+  border: none;
+  border-left: 1px solid #000;
+  padding: 2px 10px;
+  float: left;
+}
+
+.banner .banner-menu input[type="button"] {
+  background: none;
+  color: #FFF;
+  font-size: 16px;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+.banner .banner-menu input[type="button"]:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.banner .banner-menu input[type="button"].but-menu {
+  display: none;
+  font-size: 36px;
+  line-height: 24px;
+  font-weight: 400;
+  float: right;
+  padding-bottom: 18px;
+}
+
+.banner .banner-logo {
+  z-index: 1;
+  display: block;
+  position: absolute;
+  left: 9px;
+  bottom: 9px;
+  width: 110px;
+  height: 110px;
+  border: 1px solid rgba(255, 255, 255, 0.27);
+}
+
+.banner .banner-logo img {
+  width: 100%;
+  height: 100%;
+}
+
+.ms-ctn-bootstrap-focus {
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.ms-ctn, .ms-ctn.ms-ctn-bootstrap-focus {
+  height: 40px;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none !important;
+  border-left: 1px solid #000 !important;
+}
+
+.ms-sel-ctn {
+  padding-right: 5px;
+  float: left;
+}
+
+.ms-helper {
+  display: none !important;
+}
+
+.ms-ctn-bootstrap-focus, .ms-ctn-bootstrap-focus .ms-res-ctn {
+  border-color: transparent !important;
+}
+
+.ms-res-ctn .ms-res-item-active {
+  background-color: #00ADEF !important;
+}
+
+.ms-res-ctn .ms-res-item em {
+  background: #000 !important;
+}
+
+.ms-sel-ctn .ms-sel-item, .ms-sel-ctn .ms-sel-item:hover {
+  background: #00ADEF;
+  font-size: 14px;
+  color: #FFF;
+  line-height: 22px;
+  padding: 2px 7px 1px;
+  margin-top: 9px;
+}
+
+.ms-sel-ctn .ms-sel-item .ms-close-btn {
+  background-image: url(images/cross.png);
+}
+
+.ms-ctn input, .ms-ctn input:focus {
+  background: none;
+  color: white;
+  line-height: 18px;
+  padding: 8px 6px;
+  font-size: 16px;
+}
+
+.ms-ctn .ms-empty-text {
+  color: #666;
+}
+
+.ms-ctn .ms-trigger, .ms-ctn .ms-trigger:hover {
+  background: none;
+  border: none;
+}
+
+.ms-ctn .ms-trigger .ms-trigger-ico {
+  border-top: 4px solid white;
+  margin-top: 21px;
+}
+
+.ms-ctn .ms-trigger:hover .ms-trigger-ico {
+  border-top: 4px solid #00adef;
+}
+
+.banner .banner-menu .but-filter-toggle.active {
+  background: rgba(0, 173, 239, 0.7);
+}
+
+.banner .banner-menu .but-filter-toggle.active:hover {
+  background: rgba(0, 173, 239, 0.9);
+}
+
+footer {
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+  padding: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+
+  .banner {
+    height: auto;
+  }
+
+  .banner .banner-cover {
+    height: 100%;
+  }
+
+  .banner .banner-mask {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .banner .banner-title {
+    position: relative;
+    left: auto;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    text-align: center;
+  }
+
+  .page-default .banner .banner-title {
+    padding-left: 82px;
+    min-height: 72px;
+    overflow: hidden;
+    text-align: left;
+  }
+
+  /*.page-default .banner .banner-title h1 {
+    height: 37px;
+    white-space: nowrap;
+  }
+
+  .page-default .banner .banner-title h2 {
+    height: 20px;
+    white-space: nowrap;
+  }*/
+
+  .but-filter-photos, .ms-ctn, .ms-ctn.ms-ctn-bootstrap-focus {
+    border-left: 0 !important;
+  }
+
+  .banner .banner-logo {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    margin: 15px auto 0;
+    width: 60px;
+    height: 60px;
+  }
+
+  .page-default .banner .banner-logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    margin: 0;
+  }
+
+  .banner .banner-infos {
+    display: none;
+    position: relative;
+    bottom: auto;
+    right: auto;
+    padding-right: 10px;
+    text-align: right;
+  }
+
+  .page-index .banner .banner-infos {
+    display: block;
+  }
+
+  .banner .banner-infos .info-column {
+    margin: 10px 0 0 10px;
+  }
+
+  .banner .banner-infos .info-column:first-child {
+    margin-left: 0;
+  }
+
+  .banner .banner-infos .info-column span {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .banner .banner-title h1 {
+    padding-top: 5px;
+  }
+
+  .banner .banner-menu-container {
+    padding-top: 15px;
+  }
+
+  .banner .banner-menu {
+    padding-left: 0;
+    min-height: 44px;
+  }
+
+  .banner .banner-menu input[type="button"].but-menu {
+    display: inline-block;
+  }
+
+  .banner .banner-menu .banner-menu-select, #but-logout {
+    display: none;
+  }
+
+  .banner .banner-menu .banner-menu-select.first {
+    margin-left: 0;
+  }
+
+  .banner .banner-menu .right-menu .visitor, .banner .banner-menu .right-menu .admin {
+    display: none;
+  }
+
+  footer {
+    color: #666;
+  }
+
+}
