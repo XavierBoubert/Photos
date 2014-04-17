@@ -1,6 +1,7 @@
 <a name="1.2.0"></a>
 # 1.2.0
 
+- Problème de sécurité sur les photos
 - Améliorer les perfs de génération de photos
 
 - Changelog + Readme + Install
