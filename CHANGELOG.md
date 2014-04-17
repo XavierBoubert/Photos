@@ -4,6 +4,9 @@
 
 ## Bug Fixes
 
+- **Security**
+  - Fix replace photo by access denied picture for no logged user
+
 - **Viewer**
   - Hide menu button on videos
 
