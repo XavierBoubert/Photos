@@ -6,6 +6,7 @@
 
 - **Worker**
   - Generate videos thumbnails from frame 100 instead of 1
+  - Generate newer folders first to optimize perfs
 
 <a name="1.1.0"></a>
 # 1.1.0 (2014-04-17)

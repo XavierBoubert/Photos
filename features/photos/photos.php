@@ -320,6 +320,10 @@ function remove_path($path) {
   return $result;
 }
 
+function newer_first($a, $b) {
+  return $b->getPathname() > $a->getPathname();
+}
+
 function make_next_thumb() {
   $extensions = array('png', 'jpg', 'jpeg', 'gif', 'mp4');
   $videosExtensions = array('mp4');
@@ -329,7 +333,8 @@ function make_next_thumb() {
   $haveWorked = false;
 
   $directory = new RecursiveDirectoryIterator(PHOTOS_PATH, RecursiveDirectoryIterator::SKIP_DOTS);
-  $iterator = new RecursiveIteratorIterator($directory, RecursiveIteratorIterator::LEAVES_ONLY);
+  $it = new RecursiveIteratorIterator($directory, RecursiveIteratorIterator::LEAVES_ONLY);
+  $iterator = new SortingIterator($it, 'newer_first');
 
   foreach($iterator as $fileinfo) {
     $ext = strtolower($fileinfo->getExtension());
