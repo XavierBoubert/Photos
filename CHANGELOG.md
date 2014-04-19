@@ -1,3 +1,12 @@
+<a name="1.2.0"></a>
+# 1.2.0 (2014-?)
+
+
+## Breaking Changes
+
+- **Worker**
+  - Generate videos thumbnails from frame 100 instead of 1
+
 <a name="1.1.0"></a>
 # 1.1.0 (2014-04-17)
 
