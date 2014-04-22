@@ -2,6 +2,7 @@
 # 1.2.0
 
 - Les images des featured sont mal cadrées et pixelisées
+- L'algorythme du Worker de suppression des repertoires et fichiers est trop lent
 
 - [Customize] Générer automatiquement la première photo de cover et de banner
 - En cas de recherche avec aucun resultat, on se tape une barre blanche de 1px

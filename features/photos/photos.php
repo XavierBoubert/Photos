@@ -451,7 +451,7 @@ function make_next_thumb() {
     }
   }
 
-  if(!$haveWorked) {
+  if(false && !$haveWorked) {
     $directory = new RecursiveDirectoryIterator(CACHE_PATH);
     $iterator = new RecursiveIteratorIterator($directory, RecursiveIteratorIterator::LEAVES_ONLY);
 
@@ -466,6 +466,7 @@ function make_next_thumb() {
 
         if(!is_dir(PHOTOS_PATH . $path)) {
           $haveUpdatedGlobalConfig = true;
+
           $result = remove_path($filePath);
           $globalConfig['number_photos'] -= $result['number_photos'];
           $globalConfig['number_videos'] -= $result['number_videos'];

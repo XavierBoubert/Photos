@@ -80,6 +80,9 @@ switch($command) {
         $globalConfig = get_global_config();
         $totalToMake = number_photos() + number_videos();
 
+        $result['number_photos'] = number_photos();
+        $result['number_videos'] = number_videos();
+
         if($globalConfig['number_photos'] + $globalConfig['number_videos'] < $totalToMake) {
           $result['status'] = 'working';
 
