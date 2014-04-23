@@ -5,6 +5,7 @@
 
 - **Common**
   - Display true favicons when no logged user
+  - Fix broken folders access with utf8 special characters
 
 ## Breaking Changes
 

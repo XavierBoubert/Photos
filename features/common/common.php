@@ -128,7 +128,7 @@ function make_path_url($url = false) {
   global $photospath;
 
   if(!$url) {
-    $url = $_SERVER['REQUEST_URI'];
+    $url = urldecode($_SERVER['REQUEST_URI']);
   }
 
   $pathurl = array_merge(array(), array_filter(explode('/', $url), function($value) {
