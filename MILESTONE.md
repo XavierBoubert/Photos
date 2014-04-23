@@ -1,14 +1,15 @@
 <a name="1.2.0"></a>
 # 1.2.0
 
-- Les images des featured sont mal cadrées et pixelisées
-- L'algorythme du Worker de suppression des repertoires et fichiers est trop lent
+- Améliorer les perfs de génération de photos
+  - L'algorythme du Worker de suppression des repertoires et fichiers est trop lent
 
+- Les nombres globaux en haut à droite devraient être calibrés sur les "visibles"
+
+- Les images des featured sont mal cadrées et pixelisées
 - [Customize] Générer automatiquement la première photo de cover et de banner
 - En cas de recherche avec aucun resultat, on se tape une barre blanche de 1px
 - Si je me deconnecte d'un repertoire j'ai des images TROLL partout sur la connexion
-
-- Améliorer les perfs de génération de photos
 - Pouvoir tout mettre invisible par defaut
 - SEO
 - Cross browser
