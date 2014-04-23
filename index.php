@@ -47,6 +47,10 @@
   if($pathurlLen > 0) {
     $imageTypes = array('png', 'jpg', 'jpeg', 'gif', 'bmp');
     $filesNoLogin = array('cache/logo.jpg', 'cache/banner.jpg');
+    $filesNoLogin = array(
+      'cache/logo.jpg',
+      'cache/banner.jpg'
+    );
     $noPictureFile = 'features/photos/assets/access-denied.jpg';
 
     $ext = pathinfo($pathurl[$pathurlLen - 1], PATHINFO_EXTENSION);
@@ -61,7 +65,7 @@
 
       if(file_exists($path)) {
 
-        if(!user_connected() && !in_array($path, $filesNoLogin)) {
+        if($pathurl[0] == 'cache' && !user_connected() && !in_array($path, $filesNoLogin)) {
           $ext = 'jpg';
           $path = $noPictureFile;
         }

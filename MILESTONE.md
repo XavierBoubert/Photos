@@ -18,3 +18,7 @@
 - Pouvoir avoir un accès public
 - Gérer la conversion de video avec plusieurs formats
 - Pouvoir uploader des photos (en max quality) avec son tel
+- Télécharger un répertoire complet de photos
+
+- Multilangue
+- Un wizard pour une première utilisation (avec installer ?)
