@@ -7,6 +7,9 @@
   - Display true favicons when no logged user
   - Fix broken folders access with utf8 special characters
 
+- **Admin**
+  - Update global count when hidding albums, photos or videos
+
 ## Breaking Changes
 
 - **Worker**

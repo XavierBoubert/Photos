@@ -178,6 +178,9 @@ $(function() {
           });
 
           view.find('.icon-eye').click(function() {
+
+            _startLoading();
+
             $.ajax({
               url: '/api/item-hide',
               dataType: 'json',
@@ -190,11 +193,18 @@ $(function() {
               success: function(data) {
                 view.removeClass('visible');
                 view.addClass('invisible');
+                _stopLoading();
+              },
+              error: function() {
+                _stopLoading();
               }
             });
           });
 
           view.find('.icon-eye-off').click(function() {
+
+            _startLoading();
+
             $.ajax({
               url: '/api/item-show',
               dataType: 'json',
@@ -207,6 +217,10 @@ $(function() {
               success: function(data) {
                 view.removeClass('invisible');
                 view.addClass('visible');
+                _stopLoading();
+              },
+              error: function() {
+                _stopLoading();
               }
             });
           });
