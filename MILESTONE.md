@@ -5,7 +5,6 @@
   - L'algorythme du Worker de suppression des repertoires et fichiers est trop lent
 
 - Les images des featured sont mal cadrées et pixelisées
-- [Customize] Générer automatiquement la première photo de cover et de banner
 - En cas de recherche avec aucun resultat, on se tape une barre blanche de 1px
 - Si je me deconnecte d'un repertoire j'ai des images TROLL partout sur la connexion
 - Pouvoir tout mettre invisible par defaut
