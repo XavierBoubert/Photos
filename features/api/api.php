@@ -349,6 +349,12 @@ switch($command) {
       $type = $_GET['type'];
       $path = $type == 'album' ? $_GET['url'] : $_GET['path'];
 
+      $counts = array(
+        'albums' => 0,
+        'photos' => 0,
+        'videos' => 0
+      );
+
       make_path_url($path);
 
       global $photospath;
@@ -358,17 +364,40 @@ switch($command) {
 
       if($type == 'album') {
         $config['visible'] = $visible;
+
+        $counts['albums']++;
+        $counts['photos'] += $config['number_photos_visible'];
+        $counts['videos'] += $config['number_videos_visible'];
       }
       else {
         for($i = 0; $i < count($config['items']); $i++) {
           if($config['items'][$i]['name'] == $name) {
             $config['items'][$i]['visible'] = $visible;
+
+            $type = $config['items'][$i]['type'];
+
+            $counts[$type . 's'] += 1;
+
             break;
           }
         }
       }
 
       set_config_file($path . '/config', $config);
+
+      if(!$visible) {
+        $counts['albums'] = -$counts['albums'];
+        $counts['photos'] = -$counts['photos'];
+        $counts['videos'] = -$counts['videos'];
+      }
+
+      $globalConfig = get_global_config();
+
+      $globalConfig['number_albums_visible'] += $counts['albums'];
+      $globalConfig['number_photos_visible'] += $counts['photos'];
+      $globalConfig['number_videos_visible'] += $counts['videos'];
+
+      set_global_config($globalConfig);
 
       $result['success'] = true;
 

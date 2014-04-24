@@ -451,6 +451,7 @@ function make_next_thumb() {
     }
   }
 
+  // TODO: Need optims
   if(false && !$haveWorked) {
     $directory = new RecursiveDirectoryIterator(CACHE_PATH);
     $iterator = new RecursiveIteratorIterator($directory, RecursiveIteratorIterator::LEAVES_ONLY);
