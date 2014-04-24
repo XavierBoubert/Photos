@@ -335,6 +335,38 @@ switch($command) {
   case 'item-show':
   case 'item-hide':
 
+    /*$directory = new RecursiveDirectoryIterator(CACHE_PATH, RecursiveDirectoryIterator::SKIP_DOTS);
+    $iterator = new RecursiveIteratorIterator($directory, RecursiveIteratorIterator::CHILD_FIRST);
+
+    $arr = array(
+      'total' => 0,
+      'visible' => 0,
+      'photos' => 0,
+      'photos_visible' => 0,
+      'videos' => 0,
+      'videos_visible' => 0
+    );
+
+    $i = 0;
+    foreach($iterator as $path) {
+      if($path->isDir() && $f !== '.' && $f !== '..') {
+        $filePath = $path->getPathname();
+        //$arr [] = $filePath;
+        $config = get_config_file($filePath . '/config');
+        $arr['total']++;
+        $arr['visible'] += $config['visible'] == 'true' ? 1 : 0;
+        $arr['photos'] += $config['number_photos'];
+        $arr['videos'] += $config['number_videos'];
+        if($config['visible'] == 'true') {
+          $arr['photos_visible'] += $config['number_photos_visible'];
+          $arr['videos_visible'] += $config['number_videos_visible'];
+        }
+      }
+    }
+
+    var_dump($arr);
+    exit;*/
+
     if(!user_is_admin()) {
 
       $result['success'] = false;
