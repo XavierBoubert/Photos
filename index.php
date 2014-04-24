@@ -10,6 +10,15 @@
 
   $pages = array('api', 'passwords');
 
+  if(!is_dir(CACHE_PATH)) {
+    mkdir(CACHE_PATH);
+    chmod(CACHE_PATH, 0775);
+    copy('features/photos/assets/logo.jpg', CACHE_PATH . '/logo.jpg');
+    chmod(CACHE_PATH . '/logo.jpg', 0775);
+    copy('features/photos/assets/banner.jpg', CACHE_PATH . '/banner.jpg');
+    chmod(CACHE_PATH . '/banner.jpg', 0775);
+  }
+
   require_once 'features/common/common.php';
 
   if(file_exists('features/customize/customize.php')) {

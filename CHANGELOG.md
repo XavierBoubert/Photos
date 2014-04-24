@@ -12,6 +12,9 @@
 
 ## Breaking Changes
 
+- **First use**
+  - Generate cache folder and copy default banner and logo inside
+
 - **Worker**
   - Generate videos thumbnails from frame 100 instead of 1
   - Generate newer folders first to optimize perfs
