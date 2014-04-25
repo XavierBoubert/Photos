@@ -10,6 +10,9 @@
 - **Admin**
   - Update global count when hidding albums, photos or videos
 
+- **Search**
+  - Fix broken tags and identities with spaces
+
 ## Breaking Changes
 
 - **First use**
