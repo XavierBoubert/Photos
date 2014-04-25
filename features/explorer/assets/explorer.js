@@ -520,11 +520,11 @@ $(function() {
 
     function _makeAlbum(album) {
       var tagsCls = album.tags.map(function(tag) {
-        return 'tags-' + tag;
+        return 'tags-' + tag.split(' ').join('_');
       }).join(' ');
 
       var identitiesCls = album.identities.map(function(identity) {
-        return 'identities-' + identity;
+        return 'identities-' + identity.split(' ').join('_');
       }).join(' ');
 
       var album = new Album({
@@ -551,11 +551,11 @@ $(function() {
 
     function _makeItem(item) {
       var tagsCls = item.tags.map(function(tag) {
-        return 'tags-' + tag;
+        return 'tags-' + tag.split(' ').join('_');
       }).join(' ');
 
       var identitiesCls = item.identities.map(function(identity) {
-        return 'identities-' + identity;
+        return 'identities-' + identity.split(' ').join('_');
       }).join(' ');
 
       var config = {

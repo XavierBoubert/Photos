@@ -31,7 +31,7 @@
   foreach (array('identities', 'tags') as $type) {
     foreach($config[$type] as $value => $files) {
       $search['data'] []= array(
-        'id' => $type . '-' . $value,
+        'id' => $type . '-' . implode('_', explode(' ', $value)),
         'name' => $value,
         'cls' => $type
       );
