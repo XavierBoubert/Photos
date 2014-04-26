@@ -466,6 +466,7 @@ $(function() {
 
         setTimeout(function() {
           $previous.removeClass('activate');
+          $previous.find('.featured-preview').css('top', '');
           _slideFeaturedOpen(index, max);
         }, 1000);
       }
@@ -484,11 +485,11 @@ $(function() {
             height: 1080
           },
           previewSize = {
-            width: width + 150,
-            height: Math.round((width + 150) * previewBaseSize.height / previewBaseSize.width)
+            width: width,
+            height: Math.round(width * previewBaseSize.height / previewBaseSize.width)
           },
           previewPosition = {
-            top: -Math.round((height + previewSize.height) / 2)
+            top: -(previewSize.height - height - 40)
           };
 
       maskBlurWidth = Math.floor(maskBlurWidth - (maskBlurWidth * 57 / 100));

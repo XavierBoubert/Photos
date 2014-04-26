@@ -193,46 +193,13 @@ footer {
 
 .explorer-featured .featured-item .featured-preview {
   position: absolute;
-  top: 0;
+  top: 20px;
   left: 0;
-  width: 100%;
-  -moz-transform: translateX(-150px);
-  -webkit-transform: translateX(-150px);
-  -o-transform: translateX(-150px);
-  -ms-transform: translateX(-150px);
-  transform: translateX(-150px);
-}
-
-.explorer-featured .featured-item.activate .featured-preview {
-  -webkit-transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-     -moz-transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-      -ms-transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-       -o-transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-          transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-}
-
-.explorer-featured .featured-item.odd .featured-preview {
-  -moz-transform: translateX(0);
-  -webkit-transform: translateX(0);
-  -o-transform: translateX(0);
-  -ms-transform: translateX(0);
-  transform: translateX(0);
-}
-
-.explorer-featured .featured-item.open .featured-preview {
-  -moz-transform: translateX(0);
-  -webkit-transform: translateX(0);
-  -o-transform: translateX(0);
-  -ms-transform: translateX(0);
-  transform: translateX(0);
-}
-
-.explorer-featured .featured-item.odd.open .featured-preview {
-  -moz-transform: translateX(-150px);
-  -webkit-transform: translateX(-150px);
-  -o-transform: translateX(-150px);
-  -ms-transform: translateX(-150px);
-  transform: translateX(-150px);
+  -webkit-transition: all 8s linear;
+     -moz-transition: all 8s linear;
+      -ms-transition: all 8s linear;
+       -o-transition: all 8s linear;
+          transition: all 8s linear;
 }
 
 .explorer-featured .featured-item .featured-mask {
