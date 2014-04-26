@@ -24,13 +24,15 @@
   - Add gitignore config to remove cache/ and photos/ folders
 
 - **Worker**
-  - Generate videos thumbnails from frame 100 instead of 1
   - Generate newer folders first to optimize perfs
   - Increase script timeout to 120sec
 
 - **Featured**
   - Better featured items transition and pictures quality
   - Sort items to newer first
+
+- **Videos**
+  - Generate videos thumbnails at 5% of all frames position instead of 1
 
 <a name="1.1.0"></a>
 # 1.1.0 (2014-04-17)
