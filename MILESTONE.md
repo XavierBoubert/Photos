@@ -1,12 +1,10 @@
 <a name="1.2.0"></a>
 # 1.2.0
 
-- Au passage de la souris sur le logo, afficher une fleche de retour.
+- Ajouter un loading lorsqu'on passe en admin
 
 - Mettre à jour le Readme
   - Expliquer le repertoire photos/ (le générer automatiquement ?)
-
-- Certaines photos ne veulent pas downloader (difficilement reproduisible)
 
 - Pouvoir tout mettre invisible par defaut
 - SEO

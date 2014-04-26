@@ -229,6 +229,42 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
 }
 
+.banner .banner-logo .back-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 41px;
+  height: 41px;
+  margin: -33px 0 0 -33px;
+  border: 3px solid white;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 40px;
+  color: white;
+
+  opacity: 0;
+  -webkit-transform: translateY(50px);
+     -moz-transform: translateY(50px);
+       -o-transform: translateY(50px);
+      -ms-transform: translateY(50px);
+          transform: translateY(50px);
+
+  -webkit-transition: all .35s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+     -moz-transition: all .35s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+      -ms-transition: all .35s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+       -o-transition: all .35s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+          transition: all .35s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
+
+.banner .banner-logo:hover .back-button {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+     -moz-transform: translateY(0);
+       -o-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+}
+
 .ms-ctn-bootstrap-focus {
   border: none !important;
   -webkit-box-shadow: none !important;
@@ -349,15 +385,13 @@ footer {
     text-align: left;
   }
 
-  /*.page-default .banner .banner-title h1 {
-    height: 37px;
-    white-space: nowrap;
+  .banner .banner-logo .back-button {
+    width: 31px;
+    height: 31px;
+    margin: -23px 0 0 -23px;
+    padding: 5px;
+    font-size: 30px;
   }
-
-  .page-default .banner .banner-title h2 {
-    height: 20px;
-    white-space: nowrap;
-  }*/
 
   .but-filter-photos, .ms-ctn, .ms-ctn.ms-ctn-bootstrap-focus {
     border-left: 0 !important;

@@ -23,6 +23,9 @@
   - Generate cache folder and copy default banner and logo inside
   - Add gitignore config to remove cache/ and photos/ folders
 
+- **Common**
+  - Add back button on logo picture hover
+
 - **Worker**
   - Optimize perfs to generate thumbnails in 10sec max per item!
   - Optimize synchro to remove old folders quickly!
