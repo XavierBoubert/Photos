@@ -1,8 +1,7 @@
 <a name="1.2.0"></a>
 # 1.2.0
 
-- Améliorer les perfs de génération de photos
-  - L'algorythme du Worker de suppression des repertoires et fichiers est trop lent
+- L'algorythme du Worker de suppression des repertoires et fichiers est trop lent
 
 - Mettre à jour le Readme
   - Expliquer le repertoire photos/ (le générer automatiquement ?)

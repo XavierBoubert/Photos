@@ -332,6 +332,14 @@ function make_next_thumb() {
 
   $haveWorked = false;
 
+  $cacheFiles = array();
+
+  $directory = new RecursiveDirectoryIterator(CACHE_PATH, RecursiveDirectoryIterator::SKIP_DOTS);
+  $it = new RecursiveIteratorIterator($directory, RecursiveIteratorIterator::LEAVES_ONLY);
+  foreach($it as $fileinfo) {
+    $cacheFiles [$fileinfo->getPathname()] = 1;
+  }
+
   $directory = new RecursiveDirectoryIterator(PHOTOS_PATH, RecursiveDirectoryIterator::SKIP_DOTS);
   $it = new RecursiveIteratorIterator($directory, RecursiveIteratorIterator::LEAVES_ONLY);
   $iterator = new SortingIterator($it, 'newer_first');
@@ -343,11 +351,18 @@ function make_next_thumb() {
 
       $path = $fileinfo->getPath();
 
-      $cachePath = str_replace(PHOTOS_PATH, '', $fileinfo->getPath());
+      $cachePath = str_replace(PHOTOS_PATH, '', $path);
       $filename = $fileinfo->getFilename();
       $names = thumbs_names($filename);
 
-      if(!find_file_in_cache($cachePath, $names, true)) {
+      $found = true;
+      foreach($names as $name) {
+        if(!isset($cacheFiles[CACHE_PATH . $cachePath . '/' . $name])) {
+          $found = false;
+        }
+      }
+
+      if(!$found) {
         $type = in_array($ext, $videosExtensions) ? 'video' : 'photo';
 
         for($i = 0; $i < count($sizes); $i++) {
@@ -447,7 +462,6 @@ function make_next_thumb() {
 
         break;
       }
-
     }
   }
 
