@@ -349,7 +349,7 @@ switch($command) {
 
     $i = 0;
     foreach($iterator as $path) {
-      if($path->isDir() && $f !== '.' && $f !== '..') {
+      if($path->isDir()) {
         $filePath = $path->getPathname();
         //$arr [] = $filePath;
         $config = get_config_file($filePath . '/config');
