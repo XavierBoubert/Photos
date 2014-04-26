@@ -24,6 +24,7 @@
   - Add gitignore config to remove cache/ and photos/ folders
 
 - **Worker**
+  - Optimize perfs to generate thumbnails in 10sec max per item!
   - Generate newer folders first to optimize perfs
   - Increase script timeout to 120sec
 
