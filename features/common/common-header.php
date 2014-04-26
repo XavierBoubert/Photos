@@ -55,7 +55,12 @@
       <h2><?php echo $siteConfig['site-description']; ?></h2>
     </div>
 
-    <a class="banner-logo" href="/"><img src="<?php echo photos_logo(); ?>" alt="<?php echo $siteConfig['title']; ?>" /></a>
+    <a class="banner-logo" href="/" title="Revenir à l'accueil">
+      <img src="<?php echo photos_logo(); ?>" alt="<?php echo $siteConfig['title']; ?>" />
+      <div class="back-button">
+        <i class="icon-left"></i>
+      </div>
+    </a>
 
     <?php if(user_connected()) { ?>
     <div class="banner-infos">
