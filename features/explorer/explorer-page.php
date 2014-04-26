@@ -112,7 +112,7 @@
 
             <?php } else { ?>
 
-            <i class="icon-cw" title="Lancer la régénération les miniatures"></i>
+            <i class="icon-cw" title="Lancer la régénération des miniatures"></i>
             <i class="icon-picture" title="Devenir le logo du répertoire"></i>
             <i class="icon-photo" title="Devenir la bannière du répertoire"></i>
             <i class="icon-tags" title="Modifier les mots clé"></i>
