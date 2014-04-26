@@ -489,7 +489,7 @@ $(function() {
             height: Math.round(width * previewBaseSize.height / previewBaseSize.width)
           },
           previewPosition = {
-            top: -(previewSize.height - height - 40)
+            top: -(previewSize.height - height - Math.max(0, height - 260))
           };
 
       maskBlurWidth = Math.floor(maskBlurWidth - (maskBlurWidth * 57 / 100));

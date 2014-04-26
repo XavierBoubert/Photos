@@ -10,6 +10,7 @@
 - SEO
 - Cross browser
 - Le D&D du viewer sur les mobiles
+- Let me pinch to zoom your responsive website: http://www.growingwiththeweb.com/2013/01/let-me-pinch-to-zoom-your-responsive.html
 - EXIF au dos de la photo
  - Ajouter les schemas (voir youtube)
 - Pouvoir avoir un accès public
