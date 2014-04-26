@@ -14,6 +14,9 @@
   - Fix broken tags and identities with spaces
   - Remove tiny white bar when no result
 
+- **User logout**
+  - Go back to index on user logout
+
 ## Breaking Changes
 
 - **First use**
