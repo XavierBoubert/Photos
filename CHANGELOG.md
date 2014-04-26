@@ -33,7 +33,7 @@
   - Sort items to newer first
 
 - **Videos**
-  - Generate videos thumbnails at 5% of all frames position instead of 1
+  - Generate videos thumbnails from frame number 100 instead of 1
 
 <a name="1.1.0"></a>
 # 1.1.0 (2014-04-17)
