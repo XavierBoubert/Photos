@@ -30,6 +30,7 @@
 
 - **Featured**
   - Better featured items transition and pictures quality
+  - Sort items to newer first
 
 <a name="1.1.0"></a>
 # 1.1.0 (2014-04-17)
