@@ -1,12 +1,12 @@
 <a name="1.2.0"></a>
 # 1.2.0
 
-- L'algorythme du Worker de suppression des repertoires et fichiers est trop lent
+- Au passage de la souris sur le logo, afficher une fleche de retour.
 
 - Mettre à jour le Readme
   - Expliquer le repertoire photos/ (le générer automatiquement ?)
 
-- Certaines photos ne veulent pas downloader (difficilement reproductible)
+- Certaines photos ne veulent pas downloader (difficilement reproduisible)
 
 - Pouvoir tout mettre invisible par defaut
 - SEO

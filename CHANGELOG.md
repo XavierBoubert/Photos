@@ -25,6 +25,7 @@
 
 - **Worker**
   - Optimize perfs to generate thumbnails in 10sec max per item!
+  - Optimize synchro to remove old folders quickly!
   - Generate newer folders first to optimize perfs
   - Increase script timeout to 120sec
 

@@ -465,21 +465,32 @@ function make_next_thumb() {
     }
   }
 
-  // TODO: Need optims
-  if(false && !$haveWorked) {
-    $directory = new RecursiveDirectoryIterator(CACHE_PATH);
-    $iterator = new RecursiveIteratorIterator($directory, RecursiveIteratorIterator::LEAVES_ONLY);
+  if(!$haveWorked) {
+    $photoFiles = array();
+
+    $directory = new RecursiveDirectoryIterator(PHOTOS_PATH, RecursiveDirectoryIterator::SKIP_DOTS);
+    $iterator = new RecursiveIteratorIterator($directory, RecursiveIteratorIterator::CHILD_FIRST);
+    foreach($iterator as $fileinfo) {
+      $photoFiles [ strtolower($fileinfo->getPathname()) ] = 1;
+    }
+
+    $directory = new RecursiveDirectoryIterator(CACHE_PATH, RecursiveDirectoryIterator::SKIP_DOTS);
+    $iterator = new RecursiveIteratorIterator($directory, RecursiveIteratorIterator::CHILD_FIRST);
 
     $globalConfig = get_global_config();
     $haveUpdatedGlobalConfig = false;
 
     foreach($iterator as $fileinfo) {
       $filePath = $fileinfo->getPath();
+      $fileName = $fileinfo->getFilename();
+      $filePathName = $fileinfo->getPathname();
       $path = str_replace(CACHE_PATH, '', $filePath);
 
-      if($fileinfo->getFilename() == '.') {
+      if($fileinfo->isDir()) {
 
-        if(!is_dir(PHOTOS_PATH . $path)) {
+        $pathname = strtolower(str_replace(CACHE_PATH, PHOTOS_PATH, $filePathName));
+
+        if(!isset($photoFiles[ $pathname ])) {
           $haveUpdatedGlobalConfig = true;
 
           $result = remove_path($filePath);
@@ -490,63 +501,64 @@ function make_next_thumb() {
           $globalConfig['number_videos_visible'] -= $result['number_videos_visible'];
           $globalConfig['number_albums_visible'] -= $result['number_albums_visible'];
         }
+
       }
-      else if(is_dir($filePath)) {
-        if(strpos($fileinfo->getFilename(), '_' . $sizes[0]) !== false) {
-          $file = str_replace('_' . $sizes[0] . '.jpg', '',  $fileinfo->getFilename());
-          $fileLen = strlen($file);
+      else if(strpos($fileName, '_' . $sizes[0]) !== false) {
+        $file = str_replace('_' . $sizes[0] . '.jpg', '',  $fileName);
+        $fileLen = strlen($file);
 
-          $exists = false;
+        if($file == 'folder' || $file == 'banner' || $file == 'logo') {
+          continue;
+        }
 
-          if($handle = opendir(PHOTOS_PATH . $path)) {
-            while(($fileSearch = readdir($handle)) !== false) {
-              if(strlen($fileSearch) > $fileLen && substr($fileSearch, 0, $fileLen) == $file) {
-                $exists = true;
-                break;
-              }
-            }
-            closedir($handle);
+        $pathname = strtolower(PHOTOS_PATH . $path . '/' . $file);
+
+        $exists = false;
+        foreach($extensions as $ext) {
+          if(isset($photoFiles[$pathname . '.' . $ext])) {
+            $exists = true;
+            break;
           }
+        }
 
-          if(!$exists) {
-            $config = get_config_file($filePath . '/config');
-            $i = 0;
-            foreach($config['items'] as $item) {
-              if(strlen($item['name']) > $fileLen && substr($item['name'], 0, $fileLen) == $file) {
+        if(!$exists) {
+          $config = get_config_file($filePath . '/config');
+          $i = 0;
+          foreach($config['items'] as $item) {
+            if(strlen($item['name']) > $fileLen && substr($item['name'], 0, $fileLen) == $file) {
 
-                $haveUpdatedGlobalConfig = true;
+              $haveUpdatedGlobalConfig = true;
 
-                if($item['type'] == 'photo') {
-                  $config['number_photos'] --;
-                  $globalConfig['number_photos'] --;
-                  if($item['visible']) {
-                    $config['number_photos_visible'] --;
-                    $globalConfig['number_photos_visible'] --;
-                  }
+              if($item['type'] == 'photo') {
+                $config['number_photos'] --;
+                $globalConfig['number_photos'] --;
+                if($item['visible']) {
+                  $config['number_photos_visible'] --;
+                  $globalConfig['number_photos_visible'] --;
                 }
-                else if($item['type'] == 'video') {
-                  $config['number_videos'] --;
-                  $globalConfig['number_videos'] --;
-                  if($item['visible']) {
-                    $config['number_videos_visible'] --;
-                    $globalConfig['number_videos_visible'] --;
-                  }
-                }
-
-                array_splice($config['items'], $i, 1);
-                set_config_file($filePath . '/config', $config);
-
-                $files = array_diff(scandir($filePath), array('.', '..'));
-                foreach($files as $fileSearch) {
-                  if(is_file($filePath . '/' . $fileSearch) && strlen($fileSearch) > $fileLen && substr($fileSearch, 0, $fileLen) == $file) {
-                    @unlink($filePath . '/' . $fileSearch);
-                  }
-                }
-
-                break;
               }
-              $i++;
+              else if($item['type'] == 'video') {
+                $config['number_videos'] --;
+                $globalConfig['number_videos'] --;
+                if($item['visible']) {
+                  $config['number_videos_visible'] --;
+                  $globalConfig['number_videos_visible'] --;
+                }
+              }
+
+              array_splice($config['items'], $i, 1);
+              set_config_file($filePath . '/config', $config);
+
+              $files = array_diff(scandir($filePath), array('.', '..'));
+              foreach($files as $fileSearch) {
+                if(is_file($filePath . '/' . $fileSearch) && strlen($fileSearch) > $fileLen && substr($fileSearch, 0, $fileLen) == $file) {
+                  @unlink($filePath . '/' . $fileSearch);
+                }
+              }
+
+              break;
             }
+            $i++;
           }
         }
       }
