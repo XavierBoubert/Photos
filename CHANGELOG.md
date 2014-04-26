@@ -12,6 +12,7 @@
 
 - **Search**
   - Fix broken tags and identities with spaces
+  - Remove tiny white bar when no result
 
 ## Breaking Changes
 
