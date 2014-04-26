@@ -821,6 +821,8 @@ function delete_in_cache($path, $name, $type) {
   if($type == 'album') {
     $albumPath = $path . '/' . $name;
 
+    $albumConfig = get_config_file($albumPath . '/config');
+
     $globalConfig = get_global_config();
 
     $globalConfig['number_photos'] -= $albumConfig['number_photos'];
