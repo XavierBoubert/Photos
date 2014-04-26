@@ -26,6 +26,7 @@
 - **Worker**
   - Generate videos thumbnails from frame 100 instead of 1
   - Generate newer folders first to optimize perfs
+  - Increase script timeout to 120sec
 
 - **Featured**
   - Better featured items transition and pictures quality

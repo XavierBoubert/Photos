@@ -1,7 +1,7 @@
 <?php
 
 ini_set('memory_limit', '1024M');
-set_time_limit(90);
+set_time_limit(120);
 
 global $pathurl;
 
