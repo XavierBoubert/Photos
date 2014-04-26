@@ -6,8 +6,6 @@
 
 - Les images des featured sont mal cadrées et pixelisées
 
-
-- Si je me deconnecte d'un repertoire j'ai des images TROLL partout sur la connexion
 - Pouvoir tout mettre invisible par defaut
 - SEO
 - Cross browser

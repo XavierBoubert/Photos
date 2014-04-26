@@ -124,7 +124,13 @@
     require_once 'features/'.$feature.'/'.$feature.'.php';
   }
   else if(!user_connected()) {
-    require_once 'features/users/users-login-page.php';
+    if($pathurlLen > 0) {
+      header('Location: /');
+      exit;
+    }
+    else {
+      require_once 'features/users/users-login-page.php';
+    }
   }
   else {
 
