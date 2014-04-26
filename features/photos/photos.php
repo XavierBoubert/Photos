@@ -359,6 +359,7 @@ function make_next_thumb() {
       foreach($names as $name) {
         if(!isset($cacheFiles[CACHE_PATH . $cachePath . '/' . $name])) {
           $found = false;
+          make_cache_folder($cachePath);
         }
       }
 
