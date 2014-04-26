@@ -71,7 +71,13 @@
 
   <div class="explorer-featured">
 
-    <?php $index = -1; foreach($globalConfig['featured'] as $featured) { $index++ ?>
+    <?php
+      $index = -1;
+      $globalConfig['featured'] = array_reverse($globalConfig['featured']);
+
+      foreach($globalConfig['featured'] as $featured) {
+        $index++
+    ?>
 
     <a href="<?php echo $featured['url']; ?>" class="featured-item <?php echo $index % 2 ? 'odd' : ''; ?>">
       <img class="featured-preview" src="<?php echo $featured['picture']; ?>" />
