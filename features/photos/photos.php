@@ -595,9 +595,7 @@ function create_photo_thumb($fileSource, $fileDestination, $size) {
 
 function create_video_thumb($fileSource, $fileDestination, $size) {
   $video = new ffmpeg_movie($fileSource);
-
-  $maxFrames = $video->getFrameCount() - 1;
-  $frame = floor(5 * $maxFrames / 100);
+  $frame = min(100, $video->getFrameCount() - 1);
   $frame = $video->getFrame($frame);
   if($frame) {
     $gd_image = $frame->toGDImage();
