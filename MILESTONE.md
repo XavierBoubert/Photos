@@ -4,7 +4,10 @@
 - Améliorer les perfs de génération de photos
   - L'algorythme du Worker de suppression des repertoires et fichiers est trop lent
 
-- Les images des featured sont mal cadrées et pixelisées
+- Mettre à jour le Readme
+  - Expliquer le repertoire photos/ (le générer automatiquement ?)
+
+- Certaines photos ne veulent pas downloader (difficilement reproductible)
 
 - Pouvoir tout mettre invisible par defaut
 - SEO

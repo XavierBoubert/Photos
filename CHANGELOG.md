@@ -21,10 +21,14 @@
 
 - **First use**
   - Generate cache folder and copy default banner and logo inside
+  - Add gitignore config to remove cache/ and photos/ folders
 
 - **Worker**
   - Generate videos thumbnails from frame 100 instead of 1
   - Generate newer folders first to optimize perfs
+
+- **Featured**
+  - Better featured items transition and pictures quality
 
 <a name="1.1.0"></a>
 # 1.1.0 (2014-04-17)
