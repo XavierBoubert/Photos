@@ -4,29 +4,40 @@
 
 ## Bug Fixes
 
-- Le D&D du viewer sur les mobiles
-- Les liens des featured ne sont pas tous bons
+- Test and fix bad Featured links
+- Move get counts commented code in true api command
 
 ## Breaking Changes
 
-- Pouvoir choisir la frame de la vidéo en tant que thumbnails
+### Has user, I want to define the thumbnail of a video:
 
-- Mettre à jour le Readme
-  - Expliquer le repertoire photos/ (le générer automatiquement ?)
-  - Installation du modules vidéo PHP
+- Add possibility to redefine frame number of video and regenerate thumbnails
 
+### Has user, I want to use the project in differents languages:
 
-- Cross browser
-- Let me pinch to zoom your responsive website: http://www.growingwiththeweb.com/2013/01/let-me-pinch-to-zoom-your-responsive.html
+- Include gettext
+- Translate in English and French
+- Automatically using good translation for browser (EN is default)
 
-- Créer des outils d'admin :
-  - Recalcul des counts
+### Has user, I want to improve my understanding of the project:
 
-- Télécharger un répertoire complet de photos (zip)
-- EXIF au dos de la photo
- - Ajouter les schemas (voir youtube)
-- Pouvoir avoir un accès public
+- Add Wizard explainations
+- Better README
+  - HOW TO USE photos/ folder
+  - INSTALL video PHP module
+  - Explain features and responsiveness
 
-- Gérer la conversion de video avec plusieurs formats
-- Multilangue
-- Un wizard pour une première utilisation (avec installer ?)
+### Has user, I want to use the project on more browsers:
+
+- Test and fix support for all desktop browsers
+- Test and fix support for all mobile browsers
+- Improve Viewer D&D on mobiles
+- Pinch to zoom responsive website: http://www.growingwiththeweb.com/2013/01/let-me-pinch-to-zoom-your-responsive.html
+
+<a name="backlog"></a>
+# Backlog
+
+### Has user, I want to download all photos and videos from a folder
+### Has user, I want to see photos informations (EXIF)
+### Has administrator, I want a public access with no login but restricted
+### Has administrator, I want a better internal SEO
