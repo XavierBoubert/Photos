@@ -339,7 +339,7 @@ footer {
 
 .explorer-element-admin i {
   cursor: pointer;
-  line-height: 32px;
+  line-height: 31px;
 }
 
 .featured .explorer-element-admin .icon-star {
@@ -465,7 +465,8 @@ footer {
   border: 0;
 }
 
-.explorer-element-ask .ask .ask-title {
+.explorer-element-ask .ask .ask-title,
+.explorer-element-ask .ask .ask-frame {
   resize: none;
   width: 200px;
   height: 19px;
@@ -546,7 +547,8 @@ footer {
 
 .explorer-element-ask .ask.ask-featured input[type="button"].ask-submit-1,
 .explorer-element-ask .ask.ask-tags input[type="button"].ask-submit-1,
-.explorer-element-ask .ask.ask-identities input[type="button"].ask-submit-1 {
+.explorer-element-ask .ask.ask-identities input[type="button"].ask-submit-1,
+.explorer-element-ask .ask.ask-video-frame input[type="button"].ask-submit-1 {
   float: left;
   width: 40px;
   margin-top: 5px;
