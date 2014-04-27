@@ -124,6 +124,12 @@
             <i class="icon-tags" title="Modifier les mots clé"></i>
             <i class="icon-group" title="Modifier les identités"></i>
 
+            <?php if($type == 'video') { ?>
+
+            <i class="icon-video-alt" title="Régénérer les miniatures en fonction d'une frame spécifique"></i>
+
+            <?php } ?>
+
             <?php } ?>
           </div>
 
@@ -178,6 +184,19 @@
               </div>
               <div class="clear"></div>
             </div>
+
+            <?php if($type == 'video') { ?>
+
+            <div class="ask ask-video-frame">
+              <p>Régénérer les miniatures de la vidéo en fonction du numéro de la frame :</p>
+              <input class="ask-frame" type="text" value="100" />
+              <input class="ask-submit-1" type="button" value="✔" />
+              <div class="ask-submit-cancel-container">
+                <input class="ask-submit-cancel" type="button" value="Annuler" />
+              </div>
+            </div>
+
+            <?php } ?>
 
           <?php } ?>
 

@@ -337,6 +337,37 @@ $(function() {
             });
           }
 
+          function _submitVideoFrame(frame) {
+
+            _startLoading();
+
+            $.ajax({
+              url: '/api/video-frame',
+              dataType: 'json',
+              data: {
+                path: window.Page.rootUrl(),
+                name: item.config().name || '',
+                type: item.type(),
+                frame: frame
+              },
+              success: function(data) {
+
+                _closeAsk();
+                _stopLoading();
+
+                if(data.success) {
+
+                  // Refresh
+
+                }
+              },
+              error: function() {
+                _closeAsk();
+                _stopLoading();
+              }
+            });
+          }
+
           view.find('.icon-picture').click(function() {
             _openAsk('logo');
           });
@@ -385,6 +416,17 @@ $(function() {
 
           view.find('.explorer-element-ask .ask-identities .ask-submit-1').click(function() {
             _submitTagsIdentities('identities', view.find('.explorer-element-ask .ask-identities .ask-input').val());
+          });
+
+          view.find('.icon-video-alt').click(function() {
+            _openAsk('video-frame');
+            setTimeout(function() {
+              view.find('.ask-video-frame .ask-frame').focus();
+            }, 350);
+          });
+
+          view.find('.explorer-element-ask .ask-video-frame .ask-submit-1').click(function() {
+            _submitVideoFrame(view.find('.explorer-element-ask .ask-video-frame .ask-frame').val());
           });
 
           if(_isotopeInitiated) {

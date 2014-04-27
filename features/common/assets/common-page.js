@@ -32,7 +32,7 @@ $(function() {
 
     this.rootUrl = function() {
       return _photosRoot;
-    }
+    };
 
     $el.window.scroll(function(e) {
       $el.bannerCover.css({'top': $el.window.scrollTop() * 0.4});
