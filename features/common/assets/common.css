@@ -222,6 +222,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 110px;
   height: 110px;
   border: 1px solid rgba(255, 255, 255, 0.27);
+  overflow: hidden;
 }
 
 .banner .banner-logo img {
@@ -276,6 +277,40 @@ h1, h2, h3, h4, h5, h6 {
        -o-transition: all 0.35s cubic-bezier(0.075, 0.820, 0.165, 1.000);
           transition: all 0.35s cubic-bezier(0.075, 0.820, 0.165, 1.000);
 }
+
+.but-role.hide {
+  display: none;
+}
+
+.but-role-loading {
+  display: none;
+  float: left;
+  height: 40px;
+  width: 40px;
+  padding: 2px;
+  border-left: 1px solid #000;
+}
+
+.but-role-loading.visible {
+  display: block;
+}
+
+.but-role-loading div {
+  height: 33px;
+  width: 33px;
+  border-right: 7px solid #D20000;
+  border-bottom: 7px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+  -webkit-animation: spin 0.9s linear infinite;
+  -moz-animation: spin 0.9s linear infinite;
+  -o-animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin { 0% { transform: rotate(0deg); border-right-color: #D22020; } 50% { transform: rotate(180deg); border-right-color: #A27AD7; } 100% { transform: rotate(359deg); border-right-color: #D22020; } }
+@-webkit-keyframes spin { 0% { -webkit-transform: rotate(0deg); border-right-color: #D22020; } 50% { -webkit-transform: rotate(180deg); border-right-color: #A27AD7; } 100% { -webkit-transform: rotate(359deg); border-right-color: #D22020; } }
+@-moz-keyframes spin { 0% { -moz-transform: rotate(0deg); border-right-color: #D22020; } 50% { -moz-transform: rotate(180deg); border-right-color: #A27AD7; } 100% { -moz-transform: rotate(359deg); border-right-color: #D22020; } }
+@-o-keyframes spin { 0% { -o-transform: rotate(0deg); border-right-color: #D22020; } 50% { -o-transform: rotate(180deg); border-right-color: #A27AD7; } 100% { -o-transform: rotate(359deg); border-right-color: #D22020; } }
 
 .ms-ctn-bootstrap-focus {
   border: none !important;
@@ -416,7 +451,6 @@ footer {
     margin: 15px auto 0;
     width: 60px;
     height: 60px;
-    overflow: hidden;
   }
 
   .page-default .banner .banner-logo {
