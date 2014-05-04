@@ -481,6 +481,10 @@ footer {
     display: none;
   }
 
+  .banner .banner-menu .right-menu .but-worker-container {
+    display: none;
+  }
+
   footer {
     color: #666;
   }

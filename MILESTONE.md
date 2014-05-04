@@ -12,7 +12,6 @@
 ### Has administrator, I don't want to start Worker automatically:
 
 - Add loading when enter on admin mode
-- Can start Worker on mobiles?
 
 ### Has user, I want to define the thumbnail of a video:
 

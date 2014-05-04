@@ -5,6 +5,7 @@
 
 - **Worker**
   - Now, administrators start Worker manualy
+  - Administrators can't start Worker on mobiles
 
 
 

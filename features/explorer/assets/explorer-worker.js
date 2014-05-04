@@ -180,7 +180,7 @@ $(function() {
       _stop = true;
     };
 
-    if($el.butRole.length > 0) {
+    if($el.butRole.length > 0 && $el.butRole.is(':visible')) {
       if(window.Explorer.on) {
         window.Explorer.on('loaded', function() {
           _worker.start(true);
