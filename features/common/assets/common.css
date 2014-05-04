@@ -265,6 +265,18 @@ h1, h2, h3, h4, h5, h6 {
           transform: translateY(0);
 }
 
+.but-worker-container {
+  float: left;
+  width:  0;
+  overflow: hidden;
+
+  -webkit-transition: all 0.35s cubic-bezier(0.075, 0.820, 0.165, 1.000);
+     -moz-transition: all 0.35s cubic-bezier(0.075, 0.820, 0.165, 1.000);
+      -ms-transition: all 0.35s cubic-bezier(0.075, 0.820, 0.165, 1.000);
+       -o-transition: all 0.35s cubic-bezier(0.075, 0.820, 0.165, 1.000);
+          transition: all 0.35s cubic-bezier(0.075, 0.820, 0.165, 1.000);
+}
+
 .ms-ctn-bootstrap-focus {
   border: none !important;
   -webkit-box-shadow: none !important;
@@ -404,6 +416,7 @@ footer {
     margin: 15px auto 0;
     width: 60px;
     height: 60px;
+    overflow: hidden;
   }
 
   .page-default .banner .banner-logo {

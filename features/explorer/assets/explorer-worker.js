@@ -10,12 +10,19 @@ $(function() {
     var _worker = this,
         _workerErrors = 0,
         $el = {
-          butRole: $('#but-role')
+          butRole: $('#but-role'),
+          butWorkerContainer: $('#but-worker-container'),
+          butWorker: $('#but-worker'),
+          workerBar: $('#worker-bar')
         };
 
     function _closeWorkerBar() {
-      $('.worker-bar').removeClass('visible');
+      $el.workerBar.removeClass('visible');
       $('.element.album').removeClass('working');
+
+      if(_remainingItems > 0) {
+        _showWorkerButton(_remainingItems);
+      }
     }
 
     function _progressWorkerBar(units, total, averageTime, averageItem) {
@@ -32,8 +39,8 @@ $(function() {
         averageItem = ' - ' + averageItem + ' par photo';
       }
 
-      $('.worker-bar').addClass('visible');
-      $('.worker-bar .progress').css('width', Math.round(units * 100 / total) + '%');
+      $el.workerBar.addClass('visible');
+      $el.workerBar.find('.progress').css('width', Math.round(units * 100 / total) + '%');
 
       var label = [
         'Traitement des nouvelles photos et vidéos (' + units + '/' + total
@@ -45,7 +52,16 @@ $(function() {
       }
       label.push(')');
 
-      $('.worker-bar .label').html(label.join(''));
+      $el.workerBar.find('.label').html(label.join(''));
+    }
+
+    function _hideWorkerButton() {
+      $el.butWorkerContainer.css('width', 0);
+    }
+
+    function _showWorkerButton(numberItems) {
+      $el.butWorker.val('Traiter les nouvelles photos/vidéos (' + numberItems + ')');
+      $el.butWorkerContainer.css('width', $el.butWorker.outerWidth(true));
     }
 
     function _formatTime(time, detailed) {
@@ -70,7 +86,8 @@ $(function() {
     }
 
     var _stop = false,
-        _times = [];
+        _times = [],
+        _remainingItems = 0;
 
     function _photosWorker(firstTime) {
       firstTime = firstTime || false;
@@ -89,7 +106,8 @@ $(function() {
           _workerErrors = 0;
 
           if(data.success && data.status != 'idle') {
-            data.total_done = data.work.number_photos + data.work.number_videos;
+            data.total_done = data.work.number_photos + data.work.number_videos,
+            _remainingItems = Math.max(0, data.work.total_to_make - data.total_done);
 
             var averageTime = 0,
                 averageItem = 0;
@@ -111,8 +129,11 @@ $(function() {
             $('.info-column.number-videos span').html(data.work.number_videos_visible);
             $('.info-column.last-update span').html(data.work.last_update);
 
-            if(!_stop) {
+            if(!_stop && !firstTime) {
               _progressWorkerBar(data.total_done, data.work.total_to_make, averageTime, averageItem);
+            }
+            else if(firstTime && _remainingItems > 0) {
+              _showWorkerButton(_remainingItems);
             }
 
             $('.element.album').removeClass('working');
@@ -128,7 +149,7 @@ $(function() {
             if(_stop) {
               _closeWorkerBar();
             }
-            else {
+            else if(!firstTime) {
               _photosWorker();
             }
 
@@ -140,7 +161,7 @@ $(function() {
         error: function() {
           _workerErrors++;
           if(_workerErrors < 3) {
-            _photosWorker();
+            _photosWorker(firstTime);
           }
           else {
             _closeWorkerBar();
@@ -149,10 +170,10 @@ $(function() {
       });
     }
 
-    this.start = function() {
+    this.start = function(firstTime) {
       _stop = false;
-      $('.worker-bar').removeClass('stopped');
-      _photosWorker(true);
+      $el.workerBar.removeClass('stopped');
+      _photosWorker(firstTime);
     };
 
     this.stop = function() {
@@ -162,18 +183,23 @@ $(function() {
     if($el.butRole.length > 0) {
       if(window.Explorer.on) {
         window.Explorer.on('loaded', function() {
-          _worker.start();
+          _worker.start(true);
         });
       }
       else {
-        _worker.start();
+        _worker.start(true);
       }
     }
 
-    $('.worker-bar .stop').click(function() {
-      $('.worker-bar').addClass('stopped');
+    $el.workerBar.find('.stop').click(function() {
+      $el.workerBar.addClass('stopped');
       _worker.stop();
-      $('.worker-bar .label').html('Arret en cours...');
+      $el.workerBar.find('.label').html('Arret en cours...');
+    });
+
+    $el.butWorker.click(function() {
+      _hideWorkerButton();
+      _worker.start();
     });
 
   })(window);
