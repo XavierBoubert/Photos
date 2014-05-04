@@ -3,6 +3,9 @@
 
 ## Breaking Changes
 
+- **Admin**
+  - Add loading animation when administrator changing view mode
+
 - **Worker**
   - Now, administrators start Worker manualy
   - Administrators can't start Worker on mobiles

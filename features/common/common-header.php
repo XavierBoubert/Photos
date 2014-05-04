@@ -87,6 +87,8 @@
 
           <input id="but-role" class="visitor" type="button" value="visiteur" />
 
+          <div id="but-role-loading" class="but-role-loading"><div></div></div>
+
           <?php } ?>
 
           <?php if(user_connected()) { ?>

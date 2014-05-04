@@ -512,11 +512,6 @@ footer {
   -o-animation: spin 0.9s linear infinite;
 }
 
-@keyframes spin { 0% { transform: rotate(0deg); border-right-color: #D22020; } 50% { transform: rotate(180deg); border-right-color: #A27AD7; } 100% { transform: rotate(359deg); border-right-color: #D22020; } }
-@-webkit-keyframes spin { 0% { -webkit-transform: rotate(0deg); border-right-color: #D22020; } 50% { -webkit-transform: rotate(180deg); border-right-color: #A27AD7; } 100% { -webkit-transform: rotate(359deg); border-right-color: #D22020; } }
-@-moz-keyframes spin { 0% { -moz-transform: rotate(0deg); border-right-color: #D22020; } 50% { -moz-transform: rotate(180deg); border-right-color: #A27AD7; } 100% { -moz-transform: rotate(359deg); border-right-color: #D22020; } }
-@-o-keyframes spin { 0% { -o-transform: rotate(0deg); border-right-color: #D22020; } 50% { -o-transform: rotate(180deg); border-right-color: #A27AD7; } 100% { -o-transform: rotate(359deg); border-right-color: #D22020; } }
-
 .explorer .element .loading.working {
   display: none;
   opacity: 1;

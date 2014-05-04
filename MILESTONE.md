@@ -9,10 +9,6 @@
 
 ## Breaking Changes
 
-### Has administrator, I don't want to start Worker automatically:
-
-- Add loading when enter on admin mode
-
 ### Has user, I want to define the thumbnail of a video:
 
 - Add possibility to redefine frame number of video and regenerate thumbnails

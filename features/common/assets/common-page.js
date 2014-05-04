@@ -23,7 +23,8 @@ $(function() {
           window: $(window),
           body: $(document.body),
           bannerCover: $('.banner-cover'),
-          butRole: $('#but-role')
+          butRole: $('#but-role'),
+          butRoleLoading: $('#but-role-loading')
         };
 
     this.role = function() {
@@ -49,7 +50,19 @@ $(function() {
       }
     });
 
+    function _startRoleLoading() {
+      $el.butRole.addClass('hide');
+      $el.butRoleLoading.addClass('visible');
+    }
+
+    function _stopRoleLoading() {
+      $el.butRoleLoading.removeClass('visible');
+      $el.butRole.removeClass('hide');
+    }
+
     $el.butRole.click(function() {
+      _startRoleLoading();
+
       $el.butRole.removeClass(_role.toLowerCase());
       $el.body.removeClass('role-' + _role.toLowerCase());
       _role = _role == window.ROLES.VISITOR ? window.ROLES.ADMIN : window.ROLES.VISITOR;
@@ -89,6 +102,10 @@ $(function() {
               data.firstTime = true;
               data.role = role;
               _page.fire('roleChanged', data);
+              _stopRoleLoading();
+            },
+            error: function() {
+              _stopRoleLoading();
             }
           });
 
@@ -100,6 +117,8 @@ $(function() {
         firstTime: false,
         role: role
       });
+
+      _stopRoleLoading();
     };
 
   })(window);
