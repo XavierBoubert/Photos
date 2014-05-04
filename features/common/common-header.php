@@ -80,7 +80,13 @@
 
         <div class="right-menu">
           <?php if(user_is_admin()) { ?>
+
+          <div id="but-worker-container" class="but-worker-container">
+            <input id="but-worker" class="but-worker" type="button" value="" />
+          </div>
+
           <input id="but-role" class="visitor" type="button" value="visiteur" />
+
           <?php } ?>
 
           <?php if(user_connected()) { ?>
@@ -95,7 +101,7 @@
 
   </div>
 
-  <div class="worker-bar">
+  <div id="worker-bar" class="worker-bar">
     <div class="progress"></div>
     <div class="label"></div>
     <div class="stop">x</div>

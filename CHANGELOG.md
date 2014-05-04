@@ -1,3 +1,13 @@
+<a name="1.3.0"></a>
+# 1.3.0 (2014-?)
+
+## Breaking Changes
+
+- **Worker**
+  - Now, administrators start Worker manualy
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2014-04-27)
 
