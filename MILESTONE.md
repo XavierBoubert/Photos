@@ -4,7 +4,6 @@
 ## Bug Fixes
 
 - Featured animation in Responsive mode
-- Test and fix bad Featured links
 - In admin mode, generation of banner fails sometimes
 
 ## Breaking Changes
