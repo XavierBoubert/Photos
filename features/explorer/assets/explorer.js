@@ -534,6 +534,20 @@ $(function() {
             top: -(previewSize.height - height - Math.max(0, height - 260))
           };
 
+      if(previewSize.height - 50 <= height) {
+        previewPosition.top = 0;
+
+        $index.find('.featured-preview').addClass('no-animation');
+
+        if(previewSize.height <= height) {
+          previewSize.height = height;
+          previewSize.width = Math.round(height * previewBaseSize.width / previewBaseSize.height);
+        }
+      }
+      else {
+        $index.find('.featured-preview').removeClass('no-animation');
+      }
+
       maskBlurWidth = Math.floor(maskBlurWidth - (maskBlurWidth * 57 / 100));
 
       $index.find('.featured-preview').css($.extend($.extend({}, previewSize), previewPosition));
