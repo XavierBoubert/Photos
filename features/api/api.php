@@ -332,40 +332,51 @@ switch($command) {
 
     break;
 
-  case 'item-show':
-  case 'item-hide':
+  case 'counts':
 
-    /*$directory = new RecursiveDirectoryIterator(CACHE_PATH, RecursiveDirectoryIterator::SKIP_DOTS);
-    $iterator = new RecursiveIteratorIterator($directory, RecursiveIteratorIterator::CHILD_FIRST);
+    if(!user_is_admin()) {
 
-    $arr = array(
-      'total' => 0,
-      'visible' => 0,
-      'photos' => 0,
-      'photos_visible' => 0,
-      'videos' => 0,
-      'videos_visible' => 0
-    );
+      $result['success'] = false;
+      $result['error'] = 'Vous devez être administrateur du site';
 
-    $i = 0;
-    foreach($iterator as $path) {
-      if($path->isDir()) {
-        $filePath = $path->getPathname();
-        //$arr [] = $filePath;
-        $config = get_config_file($filePath . '/config');
-        $arr['total']++;
-        $arr['visible'] += $config['visible'] == 'true' ? 1 : 0;
-        $arr['photos'] += $config['number_photos'];
-        $arr['videos'] += $config['number_videos'];
-        if($config['visible'] == 'true') {
-          $arr['photos_visible'] += $config['number_photos_visible'];
-          $arr['videos_visible'] += $config['number_videos_visible'];
+    }
+    else {
+
+      $directory = new RecursiveDirectoryIterator(CACHE_PATH, RecursiveDirectoryIterator::SKIP_DOTS);
+      $iterator = new RecursiveIteratorIterator($directory, RecursiveIteratorIterator::CHILD_FIRST);
+
+      $counts = array(
+        'albums' => 0,
+        'albums_visible' => 0,
+        'photos' => 0,
+        'photos_visible' => 0,
+        'videos' => 0,
+        'videos_visible' => 0
+      );
+
+      $i = 0;
+      foreach($iterator as $path) {
+        if($path->isDir()) {
+          $filePath = $path->getPathname();
+          $config = get_config_file($filePath . '/config');
+          $counts['albums']++;
+          $counts['albums_visible'] += $config['visible'] == 'true' ? 1 : 0;
+          $counts['photos'] += $config['number_photos'];
+          $counts['videos'] += $config['number_videos'];
+          if($config['visible'] == 'true') {
+            $counts['photos_visible'] += $config['number_photos_visible'];
+            $counts['videos_visible'] += $config['number_videos_visible'];
+          }
         }
       }
+
+      $result['success'] = true;
+      $result['counts'] = $counts;
+
     }
 
-    var_dump($arr);
-    exit;*/
+  case 'item-show':
+  case 'item-hide':
 
     if(!user_is_admin()) {
 

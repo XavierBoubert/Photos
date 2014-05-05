@@ -3,10 +3,9 @@
 
 ## Bug Fixes
 
-- In admin mode, generation of banner fails sometimes
-- Move get counts commented code in true api command
 - Featured animation in Responsive mode
 - Test and fix bad Featured links
+- In admin mode, generation of banner fails sometimes
 
 ## Breaking Changes
 
