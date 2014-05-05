@@ -55,12 +55,22 @@
       <h2><?php echo $siteConfig['site-description']; ?></h2>
     </div>
 
+    <?php if($siteConfig['body_css'] == 'page-index') { ?>
+
+    <div class="banner-logo">
+      <img src="<?php echo photos_logo(); ?>" alt="<?php echo $siteConfig['title']; ?>" />
+    </div>
+
+    <?php } else { ?>
+
     <a class="banner-logo" href="/" title="Revenir à l'accueil">
       <img src="<?php echo photos_logo(); ?>" alt="<?php echo $siteConfig['title']; ?>" />
       <div class="back-button">
         <i class="icon-left"></i>
       </div>
     </a>
+
+    <?php } ?>
 
     <?php if(user_connected()) { ?>
     <div class="banner-infos">

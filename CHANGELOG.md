@@ -7,6 +7,9 @@
   - Fix album items hides count
   - Move global counts commented code into true api command named "counts"
 
+- **Common**
+  - Remove back homepage button on homepage
+
 
 ## Breaking Changes
 
