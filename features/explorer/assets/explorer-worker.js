@@ -87,7 +87,8 @@ $(function() {
 
     var _stop = false,
         _times = [],
-        _remainingItems = 0;
+        _remainingItems = 0,
+        _totalItems = 0;
 
     function _photosWorker(firstTime) {
       firstTime = firstTime || false;
@@ -106,8 +107,8 @@ $(function() {
           _workerErrors = 0;
 
           if(data.success && data.status != 'idle') {
-            data.total_done = data.work.number_photos + data.work.number_videos,
-            _remainingItems = Math.max(0, data.work.total_to_make - data.total_done);
+            _totalItems = data.work.number_photos + data.work.number_videos,
+            _remainingItems = Math.max(0, data.work.total_to_make - _totalItems);
 
             var averageTime = 0,
                 averageItem = 0;
@@ -121,7 +122,7 @@ $(function() {
               }
               averageItem /= nbTimes;
 
-              averageTime = averageItem * (data.work.total_to_make - data.total_done);
+              averageTime = averageItem * (data.work.total_to_make - _totalItems);
             }
 
             $('.info-column.number-albums span').html(data.work.number_albums_visible);
@@ -130,7 +131,7 @@ $(function() {
             $('.info-column.last-update span').html(data.work.last_update);
 
             if(!_stop && !firstTime) {
-              _progressWorkerBar(data.total_done, data.work.total_to_make, averageTime, averageItem);
+              _progressWorkerBar(_totalItems, data.work.total_to_make, averageTime, averageItem);
             }
             else if(firstTime && _remainingItems > 0) {
               _showWorkerButton(_remainingItems);
@@ -199,6 +200,9 @@ $(function() {
 
     $el.butWorker.click(function() {
       _hideWorkerButton();
+
+      _progressWorkerBar(_totalItems, _totalItems - _remainingItems, 0, 0);
+
       _worker.start();
     });
 
