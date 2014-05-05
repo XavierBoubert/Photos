@@ -3,7 +3,6 @@
 
 ## Bug Fixes
 
-- Featured animation in Responsive mode
 - In admin mode, generation of banner fails sometimes
 
 ## Breaking Changes

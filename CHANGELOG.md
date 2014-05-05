@@ -10,6 +10,9 @@
 - **Common**
   - Remove back homepage button on homepage
 
+- **Featured**
+  - Fix Featured animation in Responsive mode
+
 
 ## Breaking Changes
 

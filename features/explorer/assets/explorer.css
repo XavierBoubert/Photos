@@ -202,6 +202,15 @@ footer {
           transition: all 8s linear;
 }
 
+.explorer-featured .featured-item .featured-preview.no-animation {
+  top: 0;
+  -webkit-transition: none;
+     -moz-transition: none;
+      -ms-transition: none;
+       -o-transition: none;
+          transition: none;
+}
+
 .explorer-featured .featured-item .featured-mask {
   position: absolute;
   top: 0;
@@ -623,7 +632,11 @@ footer {
 
   .explorer-featured .featured-item .featured-title {
     font-size: 30px;
-    line-height: 20px;
+    line-height: 32px;
+  }
+
+  .explorer-featured .featured-title span {
+    padding-bottom: 3px;
   }
 
   .explorer-featured .featured-item .featured-description {
