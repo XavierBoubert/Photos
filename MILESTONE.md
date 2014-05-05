@@ -3,6 +3,8 @@
 
 ## Bug Fixes
 
+- Album item show the true number of its items and not only visibles
+- In admin mode, generation of banner fails sometimes
 - Move get counts commented code in true api command
 - Featured animation in Responsive mode
 - Test and fix bad Featured links
