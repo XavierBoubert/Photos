@@ -415,19 +415,31 @@ switch($command) {
         }
       }
 
-      set_config_file($path . '/config', $config);
-
       if(!$visible) {
         $counts['albums'] = -$counts['albums'];
         $counts['photos'] = -$counts['photos'];
         $counts['videos'] = -$counts['videos'];
       }
 
+      $config['number_albums_visible'] += $counts['albums'];
+      $config['number_photos_visible'] += $counts['photos'];
+      $config['number_videos_visible'] += $counts['videos'];
+
+      $config['number_albums_visible'] = max(0, min($config['number_albums_visible'], $config['number_albums']));
+      $config['number_photos_visible'] = max(0, min($config['number_photos_visible'], $config['number_photos']));
+      $config['number_videos_visible'] = max(0, min($config['number_videos_visible'], $config['number_videos']));
+
+      set_config_file($path . '/config', $config);
+
       $globalConfig = get_global_config();
 
       $globalConfig['number_albums_visible'] += $counts['albums'];
       $globalConfig['number_photos_visible'] += $counts['photos'];
       $globalConfig['number_videos_visible'] += $counts['videos'];
+
+      $globalConfig['number_albums_visible'] = max(0, min($globalConfig['number_albums_visible'], $globalConfig['number_albums']));
+      $globalConfig['number_photos_visible'] = max(0, min($globalConfig['number_photos_visible'], $globalConfig['number_photos']));
+      $globalConfig['number_videos_visible'] = max(0, min($globalConfig['number_videos_visible'], $globalConfig['number_videos']));
 
       set_global_config($globalConfig);
 
