@@ -1,6 +1,12 @@
 <a name="1.3.0"></a>
 # 1.3.0 (2014-?)
 
+## Bug Fixes
+
+- **Admin**
+  - Fix album items hides count
+
+
 ## Breaking Changes
 
 - **Admin**
