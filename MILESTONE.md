@@ -7,10 +7,6 @@
 
 ## Breaking Changes
 
-### Has user, I want to define the thumbnail of a video:
-
-- Add possibility to redefine frame number of video and regenerate thumbnails
-
 ### Has user, I want to improve my understanding of the project:
 
 - Add Wizard explainations

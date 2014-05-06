@@ -337,9 +337,13 @@ $(function() {
             });
           }
 
+          var _srcPreview = null;
+
           function _submitVideoFrame(frame) {
 
             _startLoading();
+
+            _srcPreview = _srcPreview || item.view('explorer-video').find('.video-preview').attr('src');
 
             $.ajax({
               url: '/api/video-frame',
@@ -347,7 +351,6 @@ $(function() {
               data: {
                 path: window.Page.rootUrl(),
                 name: item.config().name || '',
-                type: item.type(),
                 frame: frame
               },
               success: function(data) {
@@ -357,7 +360,7 @@ $(function() {
 
                 if(data.success) {
 
-                  // Refresh
+                  item.view('explorer-video').find('.video-preview').attr('src', _srcPreview + '?_r=' + new Date().getTime());
 
                 }
               },
@@ -628,6 +631,7 @@ $(function() {
         identitiesValue: item.identities.join(', '),
         tags: item.tags,
         tagsValue: item.tags.join(', '),
+        frame: item.frame || 100,
         search_filters: tagsCls + ' ' + identitiesCls
       };
 
