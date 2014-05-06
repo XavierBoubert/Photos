@@ -13,6 +13,9 @@
 - **Featured**
   - Fix Featured animation in Responsive mode
 
+- **API**
+  - Increase API PHP time limit to prevent banners generation fails
+
 
 ## Breaking Changes
 
