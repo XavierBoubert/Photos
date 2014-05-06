@@ -16,6 +16,9 @@
 
 ## Breaking Changes
 
+- **Videos**
+  - Add possibility to define the thumbnail of a video from a frame number
+
 - **Admin**
   - Add loading animation when administrator changing view mode
 

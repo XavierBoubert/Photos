@@ -189,7 +189,7 @@
 
             <div class="ask ask-video-frame">
               <p>Régénérer les miniatures de la vidéo en fonction du numéro de la frame :</p>
-              <input class="ask-frame" type="text" value="100" />
+              <input class="ask-frame" type="text" value="{{frame}}" />
               <input class="ask-submit-1" type="button" value="✔" />
               <div class="ask-submit-cancel-container">
                 <input class="ask-submit-cancel" type="button" value="Annuler" />
@@ -238,7 +238,7 @@
       <div data-template="explorer-video" class="template">
         <div class="element video no-transition beforeopen {{visible}} {{featured}} {{search_filters}}" id="{{id}}" data-order="{{order}}">
           <a data-src="{{src}}" data-cachesrc="{{sizes_300x300}}" data-type="video">
-            <img template-src="{{sizes_300x300}}" />
+            <img template-src="{{sizes_300x300}}" class="video-preview" />
             <i class="video-icon icon-play-circled2"></i>
           </a>
           <?php admin_menu('video'); ?>

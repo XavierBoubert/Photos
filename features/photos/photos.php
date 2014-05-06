@@ -606,9 +606,9 @@ function create_photo_thumb($fileSource, $fileDestination, $size) {
   chmod($fileDestination, 0775);
 }
 
-function create_video_thumb($fileSource, $fileDestination, $size) {
+function create_video_thumb($fileSource, $fileDestination, $size, $frame = 100) {
   $video = new ffmpeg_movie($fileSource);
-  $frame = $video->getFrameCount() > 100 ? 100 : 1;
+  $frame = $video->getFrameCount() > $frame ? $frame : 1;
   $frame = $video->getFrame($frame);
   if($frame) {
     $gd_image = $frame->toGDImage();
@@ -890,7 +890,16 @@ function make_unique_thumb($type, $destinationName, $size, $path, $name, $parent
     create_photo_thumb($path . '/' . $name, $picture, $size);
   }
   else if($type == 'video') {
-    create_video_thumb($path . '/' . $name, $picture, $size);
+    $frame = 100;
+    $config = get_config_file($destinationPath . '/config');
+    for($i = 0, $len = count($config['items']); $i < $len; $i++) {
+      if($config['items'][$i]['name'] == $name) {
+        $frame = $config['items'][$i]['frame'];
+        break;
+      }
+    }
+
+    create_video_thumb($path . '/' . $name, $picture, $size, $frame);
   }
 
   $picture =  str_replace(CACHE_PATH, CACHE_URL, $picture);
@@ -911,6 +920,17 @@ function make_logo($type, $path, $name, $parent) {
   make_path_url($destinationPath);
   $destinationPath = str_replace(PHOTOS_PATH, CACHE_PATH, $photospath);
 
+  $frame = 100;
+  if($type == 'video') {
+    $config = get_config_file($destinationPath . '/config');
+    for($i = 0, $len = count($config['items']); $i < $len; $i++) {
+      if($config['items'][$i]['name'] == $name) {
+        $frame = $config['items'][$i]['frame'];
+        break;
+      }
+    }
+  }
+
   for($i = 0; $i < count($sizes); $i++) {
     $fileName = 'folder_' . $sizes[$i] . '.jpg';
 
@@ -918,7 +938,7 @@ function make_logo($type, $path, $name, $parent) {
       create_photo_thumb($path . '/' . $name, $destinationPath . '/' . $fileName, $sizes[$i]);
     }
     else if($type == 'video') {
-      create_video_thumb($path . '/' . $name, $destinationPath . '/' . $fileName, $sizes[$i]);
+      create_video_thumb($path . '/' . $name, $destinationPath . '/' . $fileName, $sizes[$i], $frame);
     }
   }
 

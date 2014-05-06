@@ -526,6 +526,50 @@ switch($command) {
 
     break;
 
+  case 'video-frame':
+
+    if(!user_is_admin()) {
+
+      $result['success'] = false;
+      $result['error'] = 'Vous devez être administrateur du site';
+
+    }
+    else {
+
+      $name = $_GET['name'];
+      $path = $_GET['path'];
+      $frame = $_GET['frame'];
+
+      $sizes = photos_sizes();
+      $names = thumbs_names($name);
+
+      make_path_url($path);
+
+      global $photospath;
+      $path = str_replace(PHOTOS_PATH, CACHE_PATH, $photospath);
+
+      for($i = 0; $i < count($sizes); $i++) {
+        $fileSized = $path . '/' . $names[$i];
+
+        create_video_thumb($photospath . '/' . $name, $fileSized, $sizes[$i], $frame);
+      }
+
+      $config = get_config_file($path . '/config');
+
+      for($i = 0, $len = count($config['items']); $i < $len; $i++) {
+        if($config['items'][$i]['name'] == $name) {
+          $config['items'][$i]['frame'] = $frame;
+          break;
+        }
+      }
+
+      set_config_file($path . '/config', $config);
+
+      $result['success'] = true;
+    }
+
+    break;
+
   default:
     $result = array(
       'success' => false,
