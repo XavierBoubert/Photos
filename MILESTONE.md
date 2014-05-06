@@ -1,10 +1,6 @@
 <a name="1.3.0"></a>
 # 1.3.0
 
-## Bug Fixes
-
-- In admin mode, generation of banner fails sometimes
-
 ## Breaking Changes
 
 ### Has user, I want to improve my understanding of the project:
