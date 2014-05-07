@@ -1,7 +1,24 @@
 <a name="1.3.0"></a>
 # 1.3.0
 
+## Bug Fixes
+
+### The global counts have losses over time:
+
+- At the end of a Worker process, re-sync all counts in all folders and global counts
+
+### If I add a folder, I process the Worker then I delete the folder, no one change in website, the cache folder is still here
+
+
+
 ## Breaking Changes
+
+### Has user, I want to use the project on more browsers:
+
+- Improve Viewer D&D on mobiles
+- Test and fix support for all mobile browsers
+- Test and fix support for all desktop browsers
+- Pinch to zoom responsive website: http://www.growingwiththeweb.com/2013/01/let-me-pinch-to-zoom-your-responsive.html
 
 ### Has user, I want to improve my understanding of the project:
 
@@ -12,18 +29,12 @@
   - INSTALL video PHP module
   - Explain features and responsiveness
 
-### Has user, I want to use the project on more browsers:
-
-- Test and fix support for all desktop browsers
-- Test and fix support for all mobile browsers
-- Improve Viewer D&D on mobiles
-- Pinch to zoom responsive website: http://www.growingwiththeweb.com/2013/01/let-me-pinch-to-zoom-your-responsive.html
-
 ### Has user, I want to use the project in differents languages:
 
 - Include gettext
 - Translate in English and French
 - Automatically using good translation for browser (EN is default)
+- Update README and explainations
 
 <a name="backlog"></a>
 # Backlog
