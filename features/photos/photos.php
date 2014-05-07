@@ -567,6 +567,8 @@ function make_next_thumb() {
     if($haveUpdatedGlobalConfig) {
       set_global_config($globalConfig);
     }
+
+    clean_counts();
   }
 
   return $haveWorked;
