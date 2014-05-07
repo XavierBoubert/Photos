@@ -16,6 +16,9 @@
 - **API**
   - Increase API PHP time limit to prevent banners generation fails
 
+- **Worker**
+  - Re-sync all counts in all folders and global counts at the end of a Worker processing
+
 
 ## Breaking Changes
 

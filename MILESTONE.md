@@ -3,10 +3,6 @@
 
 ## Bug Fixes
 
-### The global counts have losses over time:
-
-- At the end of a Worker process, re-sync all counts in all folders and global counts
-
 ### If I add a folder, I process the Worker then I delete the folder, no one change in website, the cache folder is still here
 
 
