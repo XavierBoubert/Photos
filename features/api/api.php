@@ -570,6 +570,23 @@ switch($command) {
 
     break;
 
+  case 'clean-counts':
+
+    if(!user_is_admin()) {
+
+      $result['success'] = false;
+      $result['error'] = 'Vous devez être administrateur du site';
+
+    }
+    else {
+
+      clean_counts();
+
+      $result['success'] = true;
+    }
+
+    break;
+
   default:
     $result = array(
       'success' => false,

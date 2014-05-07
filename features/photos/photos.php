@@ -1023,3 +1023,63 @@ function set_tags($path, $name, $value) {
 function set_identities($path, $name, $value) {
   return set_tags_identities('identities', $path, $name, $value);
 }
+
+function clean_counts() {
+
+  $sizes = photos_sizes();
+  $size = $sizes[0];
+
+  $directory = new RecursiveDirectoryIterator(CACHE_PATH, RecursiveDirectoryIterator::SKIP_DOTS);
+  $iterator = new RecursiveIteratorIterator($directory, RecursiveIteratorIterator::CHILD_FIRST);
+
+  $globalConfig = get_global_config();
+  $globalConfig['number_albums'] = 0;
+  $globalConfig['number_photos'] = 0;
+  $globalConfig['number_videos'] = 0;
+  $globalConfig['number_albums_visible'] = 0;
+  $globalConfig['number_photos_visible'] = 0;
+  $globalConfig['number_videos_visible'] = 0;
+
+  foreach($iterator as $path) {
+    if($path->isDir()) {
+      $pathname = $path->getPathname();
+
+      $config = get_config_file($pathname . '/config');
+
+      $albumVisible = $config['visible'] == 'true';
+
+      $globalConfig['number_albums']++;
+      $globalConfig['number_albums_visible'] += $albumVisible ? 1 : 0;
+
+      $config['number_photos'] = 0;
+      $config['number_videos'] = 0;
+      $config['number_photos_visible'] = 0;
+      $config['number_videos_visible'] = 0;
+
+      for($i = 0, $len = count($config['items']); $i < $len; $i++) {
+        $visible = $config['items'][$i]['visible'] == 'true';
+        $visible = !$albumVisible ? true : $visible;
+
+        if($config['items'][$i]['type'] == 'photo') {
+          $config['number_photos']++;
+          $config['number_photos_visible'] += $visible ? 1 : 0;
+        }
+        else if($config['items'][$i]['type'] == 'video') {
+          $config['number_videos']++;
+          $config['number_videos_visible'] += $visible ? 1 : 0;
+        }
+      }
+
+      $globalConfig['number_photos'] += $config['number_photos'];
+      $globalConfig['number_videos'] += $config['number_videos'];
+      $globalConfig['number_photos_visible'] += $albumVisible ? $config['number_photos_visible'] : 0;
+      $globalConfig['number_videos_visible'] += $albumVisible ? $config['number_videos_visible'] : 0;
+
+      set_config_file($filePath . '/config', $config);
+
+    }
+  }
+
+  set_global_config($globalConfig);
+
+}
