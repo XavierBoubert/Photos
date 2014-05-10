@@ -35,6 +35,7 @@
 <a name="backlog"></a>
 # Backlog
 
+### Has user, I want to see .MOV files videos
 ### Has administrator, I want to hide automatically all photos/videos/albums when Worker working
 ### Has user, I want to download all photos and videos from a folder
 ### Has user, I want to see photos informations (EXIF)
