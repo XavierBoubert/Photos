@@ -3,6 +3,7 @@
 
 ## Bug Fixes
 
+### [HOTFIX] Remove folders synchro erase all cache folder
 ### If I add a folder, I process the Worker then I delete the folder, no one change in website, the cache folder is still here
 
 
