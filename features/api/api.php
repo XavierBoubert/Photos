@@ -83,7 +83,9 @@ switch($command) {
         $result['number_photos'] = number_photos();
         $result['number_videos'] = number_videos();
 
-        if($globalConfig['number_photos'] + $globalConfig['number_videos'] < $totalToMake) {
+        $total = $globalConfig['number_photos'] + $globalConfig['number_videos'];
+
+        if($total < $totalToMake) {
           $result['status'] = 'working';
 
           $globalConfig = get_global_config();
@@ -97,6 +99,12 @@ switch($command) {
             'last_update' => strftime('%e %B %Y', $globalConfig['last_update']),
             'total_to_make' => $totalToMake
           );
+        }
+        else if($total > $totalToMake) {
+          make_next_thumb();
+
+          $result['number_photos'] = number_photos();
+          $result['number_videos'] = number_videos();
         }
 
       }

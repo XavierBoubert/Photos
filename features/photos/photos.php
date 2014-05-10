@@ -466,7 +466,7 @@ function make_next_thumb() {
     }
   }
 
-  if(!$haveWorked) {
+  if(false && !$haveWorked) {
     $photoFiles = array();
 
     $directory = new RecursiveDirectoryIterator(PHOTOS_PATH, RecursiveDirectoryIterator::SKIP_DOTS);
@@ -1059,6 +1059,7 @@ function clean_counts() {
       $config['number_videos_visible'] = 0;
 
       for($i = 0, $len = count($config['items']); $i < $len; $i++) {
+
         $visible = $config['items'][$i]['visible'] == 'true';
         $visible = !$albumVisible ? true : $visible;
 
@@ -1077,7 +1078,7 @@ function clean_counts() {
       $globalConfig['number_photos_visible'] += $albumVisible ? $config['number_photos_visible'] : 0;
       $globalConfig['number_videos_visible'] += $albumVisible ? $config['number_videos_visible'] : 0;
 
-      set_config_file($filePath . '/config', $config);
+      set_config_file($pathname . '/config', $config);
 
     }
   }
