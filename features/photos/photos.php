@@ -466,7 +466,7 @@ function make_next_thumb() {
     }
   }
 
-  if(false && !$haveWorked) {
+  if(!$haveWorked) {
     $photoFiles = array();
 
     $directory = new RecursiveDirectoryIterator(PHOTOS_PATH, RecursiveDirectoryIterator::SKIP_DOTS);
@@ -484,23 +484,25 @@ function make_next_thumb() {
     foreach($iterator as $fileinfo) {
       $filePath = $fileinfo->getPath();
       $fileName = $fileinfo->getFilename();
-      $filePathName = $fileinfo->getPathname();
-      $path = str_replace(CACHE_PATH, '', $filePath);
+      $filePathname = $fileinfo->getPathname();
+      $path = str_replace(CACHE_PATH, '', $filePathname);
+      $photoFilePath = str_replace(CACHE_PATH, PHOTOS_PATH, $filePath);
 
       if($fileinfo->isDir()) {
 
-        $pathname = strtolower(str_replace(CACHE_PATH, PHOTOS_PATH, $filePathName));
+        $pathname = strtolower(str_replace(CACHE_PATH, PHOTOS_PATH, $filePathname));
 
-        if(!isset($photoFiles[ $pathname ])) {
+        if(!isset($photoFiles[$pathname])) {
           $haveUpdatedGlobalConfig = true;
 
-          $result = remove_path($filePath);
+          $result = remove_path($filePathname);
+
+          $globalConfig['number_albums'] -= $result['number_albums'];
           $globalConfig['number_photos'] -= $result['number_photos'];
           $globalConfig['number_videos'] -= $result['number_videos'];
-          $globalConfig['number_albums'] -= $result['number_albums'];
+          $globalConfig['number_albums_visible'] -= $result['number_albums_visible'];
           $globalConfig['number_photos_visible'] -= $result['number_photos_visible'];
           $globalConfig['number_videos_visible'] -= $result['number_videos_visible'];
-          $globalConfig['number_albums_visible'] -= $result['number_albums_visible'];
         }
 
       }
@@ -512,7 +514,7 @@ function make_next_thumb() {
           continue;
         }
 
-        $pathname = strtolower(PHOTOS_PATH . $path . '/' . $file);
+        $pathname = strtolower($photoFilePath . '/' . $file);
 
         $exists = false;
         foreach($extensions as $ext) {
@@ -525,6 +527,7 @@ function make_next_thumb() {
         if(!$exists) {
           $config = get_config_file($filePath . '/config');
           $i = 0;
+
           foreach($config['items'] as $item) {
             if(strlen($item['name']) > $fileLen && substr($item['name'], 0, $fileLen) == $file) {
 
@@ -548,6 +551,7 @@ function make_next_thumb() {
               }
 
               array_splice($config['items'], $i, 1);
+
               set_config_file($filePath . '/config', $config);
 
               $files = array_diff(scandir($filePath), array('.', '..'));
