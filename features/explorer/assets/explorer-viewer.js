@@ -271,7 +271,7 @@ $(function() {
     }
 
     _hammer.on('release dragleft dragright swipeleft swiperight', function(ev) {
-      //ev.gesture.preventDefault();
+      ev.gesture.preventDefault();
 
       switch(ev.type) {
         case 'dragright':
@@ -304,8 +304,8 @@ $(function() {
           break;
 
         case 'release':
-          // more then 5% moved, navigate
-          if(Math.abs(ev.gesture.deltaX) > _displayWidth / 20) {
+          // more then 25% moved, navigate
+          if(Math.abs(ev.gesture.deltaX) > _displayWidth / 4) {
             if(ev.gesture.direction == 'right') {
               _viewer.previous();
             }
@@ -314,6 +314,7 @@ $(function() {
             }
           }
           else {
+            $el.items.addClass('animate');
             _select(_selected, true);
           }
 
