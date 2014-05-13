@@ -11,10 +11,30 @@
 
 ### Has user, I want to use the project on more browsers:
 
-- Improve Viewer D&D on mobiles
-- Test and fix support for all mobile browsers
-- Test and fix support for all desktop browsers
+- Improve Viewer D&D on mobiles:
+-- Windows Phone 8 (need tests)
+-- ✔ Chrome Android
+-- Safari iPhone
+
+- Test and fix support for all mobile browsers:
+-- ✔ Windows Phone 8
+-- Chrome Android (bug on videos player)
+-- Safari iPhone
+
+- Test and fix support for all desktop browsers:
+-- ✔ Chrome
+-- IE 9+
+-- Firefox
+-- Safari
+-- Opera
+
 - Pinch to zoom responsive website: http://www.growingwiththeweb.com/2013/01/let-me-pinch-to-zoom-your-responsive.html
+
+### Has user, I want to use the project in differents languages:
+
+- Include gettext
+- Translate in English and French
+- Automatically using good translation for browser (EN is default)
 
 ### Has user, I want to improve my understanding of the project:
 
@@ -24,13 +44,6 @@
   - HOW TO USE photos/ folder
   - INSTALL video PHP module
   - Explain features and responsiveness
-
-### Has user, I want to use the project in differents languages:
-
-- Include gettext
-- Translate in English and French
-- Automatically using good translation for browser (EN is default)
-- Update README and explainations
 
 <a name="backlog"></a>
 # Backlog
