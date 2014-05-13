@@ -80,7 +80,7 @@
     ?>
 
     <a href="<?php echo $featured['url']; ?>" class="featured-item <?php echo $index % 2 ? 'odd' : ''; ?>">
-      <img class="featured-preview" src="<?php echo $featured['picture']; ?>" />
+      <img class="featured-preview no-animation" src="<?php echo $featured['picture']; ?>" />
       <div class="featured-mask">
         <div class="featured-mask-left"></div>
         <div class="featured-mask-right"></div>

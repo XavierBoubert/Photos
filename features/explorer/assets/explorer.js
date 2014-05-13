@@ -537,10 +537,11 @@ $(function() {
             top: -(previewSize.height - height - Math.max(0, height - 260))
           };
 
+      $index.find('.featured-preview').addClass('no-animation');
+      var noAnimation = true;
+
       if(previewSize.height - 50 <= height) {
         previewPosition.top = 0;
-
-        $index.find('.featured-preview').addClass('no-animation');
 
         if(previewSize.height <= height) {
           previewSize.height = height;
@@ -548,34 +549,44 @@ $(function() {
         }
       }
       else {
-        $index.find('.featured-preview').removeClass('no-animation');
+        noAnimation = false;
       }
 
       maskBlurWidth = Math.floor(maskBlurWidth - (maskBlurWidth * 57 / 100));
 
-      $index.find('.featured-preview').css($.extend($.extend({}, previewSize), previewPosition));
-
-      $index
-        .addClass('activate')
-        .addClass('open');
-
-      $index.find('.featured-mask').css('left', $index.hasClass('odd') ? width - maskBlurWidth : -width + maskBlurWidth);
+      $index.find('.featured-preview').css($.extend({}, previewSize));
 
       setTimeout(function() {
-        $index.find('.featured-title').addClass('open');
-        setTimeout(function() {
-          $index.find('.featured-description').addClass('open');
-        }, 200);
-      }, 800);
 
-      if(max > 1) {
-        setTimeout(function() {
-          index++;
-          index = index == max ? 0 : index;
+        if(!noAnimation) {
+          $index.find('.featured-preview').removeClass('no-animation');
+        }
 
-          _slideFeatured(index, max, true);
-        }, 7000);
-      }
+        $index.find('.featured-preview').css($.extend({}, previewPosition));
+
+        $index
+          .addClass('activate')
+          .addClass('open');
+
+        $index.find('.featured-mask').css('left', $index.hasClass('odd') ? width - maskBlurWidth : -width + maskBlurWidth);
+
+        setTimeout(function() {
+          $index.find('.featured-title').addClass('open');
+          setTimeout(function() {
+            $index.find('.featured-description').addClass('open');
+          }, 200);
+        }, 800);
+
+        if(max > 1) {
+          setTimeout(function() {
+            index++;
+            index = index == max ? 0 : index;
+
+            _slideFeatured(index, max, true);
+          }, 7000);
+        }
+
+      });
     }
 
     function _makeAlbum(album) {
