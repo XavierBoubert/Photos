@@ -129,7 +129,7 @@
   margin-top: 7px;
 }
 
-.login-form input[type="submit"] {
+.login-form .button-submit {
   width: 100%;
   height: 36px;
   font-size: 18px;

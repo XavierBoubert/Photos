@@ -38,7 +38,7 @@
           </label>
         </p>
         <p class="submit">
-          <input type="submit" class="button button-primary button-large" value="Se connecter" />
+          <input type="submit" class="button-submit" value="Se connecter" />
         </p>
       </form>
     </div>

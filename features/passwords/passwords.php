@@ -30,7 +30,7 @@
       </div>
 
       <p class="submit">
-        <input type="submit" class="button button-primary button-large" value="Crypter" />
+        <input type="submit" class="button-submit" value="Crypter" />
       </p>
     </form>
   </div>
