@@ -170,7 +170,9 @@ footer {
   overflow: hidden;
 }
 
-.explorer-featured .featured-item {
+.explorer-featured .featured-item,
+.explorer-featured .featured-item:hover,
+.explorer-featured .featured-item:visited {
   position: absolute;
   visibility: hidden;
   top: 0;
@@ -178,6 +180,7 @@ footer {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  text-decoration: none;
 
   -webkit-transition: all 0.35s ease;
      -moz-transition: all 0.35s ease;

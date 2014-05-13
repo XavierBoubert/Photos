@@ -11,21 +11,23 @@
 
 ### Has user, I want to use the project on more browsers:
 
-- Improve Viewer D&D on mobiles:
+- Improve Viewer D&D on mobiles/tablets:
 -- Windows Phone 8 (need tests)
 -- ✔ Chrome Android
 -- Safari iPhone
+-- Safari iPad
 
-- Test and fix support for all mobile browsers:
+- Test and fix support for all mobiles/tablets browsers:
 -- ✔ Windows Phone 8
 -- ✔ Chrome Android
 -- Safari iPhone
+-- Safari iPad
 
 - Test and fix support for all desktop browsers:
 -- ✔ Chrome
 -- IE 9+
 -- Firefox
--- Safari
+-- ✔ Safari
 -- Opera
 
 - Pinch to zoom responsive website: http://www.growingwiththeweb.com/2013/01/let-me-pinch-to-zoom-your-responsive.html
