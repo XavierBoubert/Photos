@@ -271,7 +271,7 @@ $(function() {
     }
 
     _hammer.on('release dragleft dragright swipeleft swiperight', function(ev) {
-      ev.gesture.preventDefault();
+
 
       switch(ev.type) {
         case 'dragright':
@@ -287,12 +287,16 @@ $(function() {
 
           _setContainerOffset(drag_offset + pane_offset);
 
+          ev.gesture.preventDefault();
+
           break;
 
         case 'swipeleft':
 
           _viewer.next();
           ev.gesture.stopDetect();
+
+          ev.gesture.preventDefault();
 
           break;
 
@@ -301,21 +305,28 @@ $(function() {
           _viewer.previous();
           ev.gesture.stopDetect();
 
+          ev.gesture.preventDefault();
+
           break;
 
         case 'release':
-          // more then 25% moved, navigate
-          if(Math.abs(ev.gesture.deltaX) > _displayWidth / 4) {
-            if(ev.gesture.direction == 'right') {
-              _viewer.previous();
+
+          if(ev.gesture.deltaX !== 0) {
+            // more then 25% moved, navigate
+            if(Math.abs(ev.gesture.deltaX) > _displayWidth / 4) {
+              if(ev.gesture.direction == 'right') {
+                _viewer.previous();
+              }
+              else {
+                _viewer.next();
+              }
             }
             else {
-              _viewer.next();
+              $el.items.addClass('animate');
+              _select(_selected, true);
             }
-          }
-          else {
-            $el.items.addClass('animate');
-            _select(_selected, true);
+
+            ev.gesture.preventDefault();
           }
 
           break;
