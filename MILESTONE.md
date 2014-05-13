@@ -18,7 +18,7 @@
 
 - Test and fix support for all mobile browsers:
 -- ✔ Windows Phone 8
--- Chrome Android (bug on videos player)
+-- ✔ Chrome Android
 -- Safari iPhone
 
 - Test and fix support for all desktop browsers:
@@ -39,7 +39,7 @@
 ### Has user, I want to improve my understanding of the project:
 
 - Add Wizard explainations
-- Add Admin documentation
+- Add Admin documentation [github.io]
 - Better README
   - HOW TO USE photos/ folder
   - INSTALL video PHP module
