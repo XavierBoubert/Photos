@@ -32,6 +32,16 @@
   - Now, administrators start Worker manualy
   - Administrators can't start Worker on mobiles
 
+- **New browsers support**
+  - ✔ Chrome desktop
+  - ✔ IE 10+ desktop
+  - ✔ Firefox desktop
+  - ✔ Safari desktop
+  - ✔ Opera desktop
+
+  - ✔ IE 10+ Windows Phone
+  - ✔ Chrome Android
+
 
 
 <a name="1.2.0"></a>
