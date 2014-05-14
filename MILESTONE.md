@@ -12,15 +12,13 @@
 ### Has user, I want to use the project on more browsers:
 
 - Improve Viewer D&D on mobiles/tablets:
--- Windows Phone 8 (need tests)
--- Safari iPhone
--- Safari iPad
+  - Windows Phone 8 (need tests)
+  - Safari iPhone
+  - Safari iPad
 
 - Test and fix support for all mobiles/tablets browsers:
--- Safari iPhone
--- Safari iPad
-
-- Pinch to zoom responsive website: http://www.growingwiththeweb.com/2013/01/let-me-pinch-to-zoom-your-responsive.html
+  - Safari iPhone
+  - Safari iPad
 
 ### Has user, I want to use the project in differents languages:
 

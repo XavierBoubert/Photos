@@ -15,7 +15,7 @@
   <link rel="shortcut icon" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/common/assets/images/touch-icon.png" />
 
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
   <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">

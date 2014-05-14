@@ -42,6 +42,8 @@
   - ✔ IE 10+ Windows Phone
   - ✔ Chrome Android
 
+  - User can zoom photos/video on mobile devices
+
 
 
 <a name="1.2.0"></a>

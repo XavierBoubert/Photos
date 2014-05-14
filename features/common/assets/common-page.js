@@ -36,7 +36,11 @@ $(function() {
     };
 
     $el.window.scroll(function(e) {
-      $el.bannerCover.css({'top': $el.window.scrollTop() * 0.4});
+      var top = 0;
+      if($el.body.width() > 1000) {
+        top = $el.window.scrollTop() * 0.4;
+      }
+      $el.bannerCover.css({'top': top});
     });
 
     $('.but-menu').click(function() {
