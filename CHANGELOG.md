@@ -39,6 +39,8 @@
   - ✔ Safari desktop
   - ✔ Opera desktop
 
+  - ✔ iPhone
+  - ✔ iPad
   - ✔ IE 10+ Windows Phone
   - ✔ Chrome Android
 

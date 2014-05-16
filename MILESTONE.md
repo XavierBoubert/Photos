@@ -9,17 +9,6 @@
 
 ## Breaking Changes
 
-### Has user, I want to use the project on more browsers:
-
-- Improve Viewer D&D on mobiles/tablets:
-  - Windows Phone 8 (need tests)
-  - Safari iPhone
-  - Safari iPad
-
-- Test and fix support for all mobiles/tablets browsers:
-  - Safari iPhone
-  - Safari iPad
-
 ### Has user, I want to use the project in differents languages:
 
 - Include gettext
