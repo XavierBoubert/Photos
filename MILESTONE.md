@@ -1,13 +1,15 @@
-<a name="1.3.0"></a>
-# 1.3.0
+<a name="1.4.0"></a>
+# 1.4.0
 
 ## Bug Fixes
 
 (nothing for now)
 
-
-
 ## Breaking Changes
+
+### Has user, I want to see .MOV files videos
+
+- Automatically convert MOV files to MP4 (ffmpeg ?)
 
 ### Has user, I want to use the project in differents languages:
 
@@ -27,7 +29,6 @@
 <a name="backlog"></a>
 # Backlog
 
-### Has user, I want to see .MOV files videos
 ### Has administrator, I want to hide automatically all photos/videos/albums when Worker working
 ### Has user, I want to download all photos and videos from a folder
 ### Has user, I want to see photos informations (EXIF)
