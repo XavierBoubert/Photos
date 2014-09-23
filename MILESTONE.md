@@ -29,8 +29,8 @@
 <a name="backlog"></a>
 # Backlog
 
-### Has administrator, I want to hide automatically all photos/videos/albums when Worker working
-### Has user, I want to download all photos and videos from a folder
-### Has user, I want to see photos informations (EXIF)
-### Has administrator, I want a public access with no login but restricted
-### Has administrator, I want a better internal SEO
+### As an administrator, I want to hide automatically all photos/videos/albums when Worker working
+### As a user, I want to download all photos and videos from a folder
+### As a user, I want to see photos informations (EXIF)
+### As an administrator, I want a public access with no login but restricted
+### As an administrator, I want a better internal SEO
