@@ -7,17 +7,17 @@
 
 ## Breaking Changes
 
-### Has user, I want to see .MOV files videos
+### As a user, I want to see .MOV files videos
 
 - Automatically convert MOV files to MP4 (ffmpeg ?)
 
-### Has user, I want to use the project in differents languages:
+### As a user, I want to use the project in differents languages:
 
 - Include gettext
 - Translate in English and French
 - Automatically using good translation for browser (EN is default)
 
-### Has user, I want to improve my understanding of the project:
+### As a user, I want to improve my understanding of the project:
 
 - Add Wizard explainations
 - Add Admin documentation [github.io]
