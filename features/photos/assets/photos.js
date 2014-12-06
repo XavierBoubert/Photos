@@ -176,10 +176,12 @@ $(function() {
     var _this = this,
         _items = [];
 
-    this.add = function(item) {
+    this.add = function(item, digest, callback) {
       _items.push(item);
       _this.fire('added', {
-        item: item
+        item: item,
+        digest: typeof(digest) == 'undefined' ? true : digest,
+        callback: callback || false
       });
 
       return item;

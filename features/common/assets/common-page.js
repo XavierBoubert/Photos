@@ -105,8 +105,10 @@ $(function() {
             success: function(data) {
               data.firstTime = true;
               data.role = role;
+              data.callback = function() {
+                _stopRoleLoading();
+              }
               _page.fire('roleChanged', data);
-              _stopRoleLoading();
             },
             error: function() {
               _stopRoleLoading();

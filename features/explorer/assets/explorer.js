@@ -95,8 +95,13 @@ $(function() {
       _album.on('added', function(args) {
         $('.explorer-empty').remove();
 
-        var item = args.item;
-        item.on('explorer-' + item.type() + '-rendered', function() {
+        var digest = typeof(args.digest) == 'undefined' ? true : args.digest,
+            addedCallback = args.callback || false,
+            item = args.item;
+
+        item.on('explorer-' + item.type() + '-rendered', function(args) {
+          args = args || {};
+
           _numberRendered++;
 
           var view = item.view('explorer-' + item.type());
@@ -436,7 +441,10 @@ $(function() {
             view
               .removeClass('no-transition')
               .removeClass('beforeopen');
-            $el.explorer.isotope('insert', view);
+
+            if(digest) {
+              $el.explorer.isotope('insert', view);
+            }
           }
           else if(_numberRendered == _numberToRender) {
             _updateIsotope();
@@ -455,6 +463,10 @@ $(function() {
             Viewer.init();
 
             _explorer.fire('loaded');
+          }
+
+          if(addedCallback) {
+            addedCallback(view);
           }
         });
         item.render('explorer-' + item.type());
@@ -775,18 +787,62 @@ $(function() {
       return returnItem;
     };
 
+    function _addAlbumToAlbum(album, callback) {
+      setTimeout(function() {
+        _album.add(_makeAlbum(album), false, callback);
+      });
+    }
+
+    function _addItemToAlbum(album, callback) {
+      setTimeout(function() {
+        _album.add(_makeItem(item), false, callback);
+      });
+    }
+
+    var _callbackRoleChangedViews = [];
+
+    function _callbackRoleChanged(view, total, callback) {
+      _callbackRoleChangedViews.push(view.get(0));
+
+      if(_callbackRoleChangedViews.length == total) {
+        var $items = $($.map(_callbackRoleChangedViews, function(el) {
+          return $.makeArray(el);
+        }));
+        $el.explorer.isotope('insert', $items);
+
+        if(callback) {
+          callback();
+        }
+      }
+    }
+
     window.Page.on('roleChanged', function(args) {
       if(args.firstTime) {
         if(args.success) {
+          var total = args.invisibles.albums.length + args.invisibles.items.length;
+
+          _callbackRoleChangedViews = [];
+
           for(var i = 0, len = args.invisibles.albums.length; i < len; i++) {
             var album = args.invisibles.albums[i];
             album.visible = false;
-            _album.add(_makeAlbum(album));
+
+            _addAlbumToAlbum(album, function(view) {
+              _callbackRoleChanged(view, total, args.callback);
+            });
           }
           for(var i = 0, len = args.invisibles.items.length; i < len; i++) {
             var item = args.invisibles.items[i];
             item.visible = false;
-            _album.add(_makeItem(item));
+
+            _addItemToAlbum(item, function(view) {
+              _callbackRoleChanged(view, total, args.callback);
+            });
+          }
+        }
+        else {
+          if(args.callback) {
+            args.callback();
           }
         }
       }
@@ -796,6 +852,10 @@ $(function() {
         }
         else {
           _explorer.addFilter('visible');
+        }
+
+        if(args.callback) {
+          args.callback();
         }
       }
 
