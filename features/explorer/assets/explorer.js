@@ -793,7 +793,7 @@ $(function() {
       });
     }
 
-    function _addItemToAlbum(album, callback) {
+    function _addItemToAlbum(item, callback) {
       setTimeout(function() {
         _album.add(_makeItem(item), false, callback);
       });
@@ -802,7 +802,9 @@ $(function() {
     var _callbackRoleChangedViews = [];
 
     function _callbackRoleChanged(view, total, callback) {
-      _callbackRoleChangedViews.push(view.get(0));
+      if(view) {
+        _callbackRoleChangedViews.push(view.get(0));
+      }
 
       if(_callbackRoleChangedViews.length == total) {
         var $items = $($.map(_callbackRoleChangedViews, function(el) {
@@ -838,6 +840,10 @@ $(function() {
             _addItemToAlbum(item, function(view) {
               _callbackRoleChanged(view, total, args.callback);
             });
+          }
+
+          if(total === 0) {
+            _callbackRoleChanged(null, total, args.callback);
           }
         }
         else {
