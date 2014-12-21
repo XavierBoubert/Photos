@@ -900,7 +900,7 @@ function make_unique_thumb($type, $destinationName, $size, $path, $name, $parent
     $config = get_config_file($destinationPath . '/config');
     for($i = 0, $len = count($config['items']); $i < $len; $i++) {
       if($config['items'][$i]['name'] == $name) {
-        $frame = $config['items'][$i]['frame'];
+        $frame = isset($config['items'][$i]['frame']) ? $config['items'][$i]['frame'] : $frame;
         break;
       }
     }
@@ -931,7 +931,7 @@ function make_logo($type, $path, $name, $parent) {
     $config = get_config_file($destinationPath . '/config');
     for($i = 0, $len = count($config['items']); $i < $len; $i++) {
       if($config['items'][$i]['name'] == $name) {
-        $frame = $config['items'][$i]['frame'];
+        $frame = isset($config['items'][$i]['frame']) ? $config['items'][$i]['frame'] : $frame;
         break;
       }
     }
